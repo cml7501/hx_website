@@ -1,0 +1,28 @@
+{
+  "certs": [
+    {
+      "img": "/assets/img/cert-iso9001.jpg",
+      "title": { "zh": "ISO9001 质量管理体系认证证书", "en": "ISO 9001 Quality Management System Certificate" },
+      "note": { "zh": "证书图片沿用旧站扫描件，建议提供高清版替换【待替换】", "en": "Image migrated from the old site; a high-resolution scan is recommended. [To be replaced]" }
+    },
+    {
+      "img": "/assets/img/cert-iso13485.jpg",
+      "title": { "zh": "ISO13485 医疗器械质量管理体系认证证书", "en": "ISO 13485 Medical Device Quality Management System Certificate" },
+      "note": { "zh": "证书图片沿用旧站扫描件，建议提供高清版替换【待替换】", "en": "Image migrated from the old site; a high-resolution scan is recommended. [To be replaced]" }
+    }
+  ],
+  "others": [
+    {
+      "title": { "zh": "国家高新技术企业", "en": "National High-Tech Enterprise" },
+      "desc": { "zh": "专业从事医疗检验产品研发、生产、销售的高新技术企业。【证书图待补充】", "en": "A high-tech enterprise dedicated to medical testing products. [Certificate image to be added]" }
+    },
+    {
+      "title": { "zh": "安徽省科技成果奖", "en": "Anhui Provincial Science & Technology Achievement Award" },
+      "desc": { "zh": "细菌鉴定药敏分析仪及配套试剂、全自动血培养仪项目荣获安徽省科技成果奖。【证书图待补充】", "en": "The bacterial ID/AST analyzer, reagents and automatic blood culture system won this award. [Certificate image to be added]" }
+    },
+    {
+      "title": { "zh": "安徽省“十五”重点科技攻关项目", "en": "Anhui “10th Five-Year” Key S&T Project" },
+      "desc": { "zh": "与中国科大、安徽省立医院、安医大附一院合作开发的重点科技攻关项目。【证书图待补充】", "en": "A key S&T project jointly developed with USTC, Anhui Provincial Hospital and the First Affiliated Hospital of AMU. [Certificate image to be added]" }
+    }
+  ]
+}

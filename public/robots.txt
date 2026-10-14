@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# 正式域名生效后，Astro 构建会生成 sitemap-index.xml
+Sitemap: http://www.hfhxkj.com/sitemap-index.xml

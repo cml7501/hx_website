@@ -1,0 +1,227 @@
+---
+import Base from '../../layouts/Base.astro';
+import { site, ui, products, t, pref, lbl, sortedNews } from '../../lib/site.js';
+
+interface Props { lang: 'zh' | 'en'; }
+const { lang } = Astro.props;
+const p = pref(lang);
+const c = site.company;
+const tdk = ui.tdk.home[lang];
+const latest = sortedNews.slice(0, 5);
+const hot = latest[0];
+
+// 首屏轮播：换图即改这里（同名替换素材后请把 ?v= 版本号 +1 以刷新浏览器缓存）；
+// 自动切换时长由 <section data-interval="毫秒"> 配置
+const heroSlides = [
+  { img: '/assets/ph/hero-1.svg?v=4', alt: { zh: '微生物检测', en: 'Microbiology Testing' } },
+  { img: '/assets/ph/hero-2.svg?v=4', alt: { zh: '药敏分析', en: 'ID & AST' } },
+  { img: '/assets/ph/hero-3.svg?v=4', alt: { zh: '血培养', en: 'Blood Culture' } },
+];
+---
+
+<Base lang={lang} title={tdk.title} desc={tdk.desc} kw={tdk.kw} path="/" onHero>
+  <!-- 首屏轮播：data-interval 为自动切换间隔（毫秒），删除该属性则用脚本默认值 -->
+  <section class="hero" id="hero" data-interval="15000">
+    {heroSlides.map((s, i) => (
+      <div
+        class:list={['hero-slide', { active: i === 0 }]}
+        style={`background-image:url('${s.img}')`}
+        role="img"
+        aria-label={t(s.alt, lang)}
+      ></div>
+    ))}
+    <div class="container hero-content">
+      <h1 class="hero-title">{t(c.slogan, lang)}</h1>
+      <p class="hero-sub">{t(c.subslogan, lang)}</p>
+      <div class="hero-actions">
+        <a class="btn btn-light" href={p + '/products/'}>{lbl('productsSection', lang)}</a>
+        <a class="btn btn-ghost" href={p + '/contact/'}>{lbl('onlineInquiry', lang)}</a>
+      </div>
+    </div>
+    <button class="hero-arrow prev" data-prev aria-label={lang === 'zh' ? '上一张' : 'Previous slide'}>‹</button>
+    <button class="hero-arrow next" data-next aria-label={lang === 'zh' ? '下一张' : 'Next slide'}>›</button>
+    <span class="hero-idx" data-idx></span>
+    <div class="hero-dots" data-dots></div>
+  </section>
+
+  <!-- 产品中心 -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="bar"></div>
+        <h2>{lbl('productsSection', lang)}</h2>
+        <p class="sub">{lbl('productsSectionSub', lang)}</p>
+      </div>
+      <div class="grid-3">
+        {products.categories.map((cat, i) => (
+          <a class:list={['p-card', 'reveal', `reveal-d${i % 3}`]} href={`${p}/products/?cat=${cat.id}`}>
+            <div class="pic">
+              <span class="cat-tag">{`0${i + 1}`}</span>
+              <img src={cat.image} alt={t(cat.name, lang)} width="800" height="600" loading="lazy" />
+            </div>
+            <div class="info">
+              <h3>{t(cat.name, lang)}</h3>
+              <p class="desc">{t(cat.desc, lang)}</p>
+              <span class="go">{lbl('viewDetail', lang)}</span>
+            </div>
+          </a>
+        ))}
+        <a class:list={['p-card', 'reveal', 'reveal-d2']} href={p + '/products/'} style="background:linear-gradient(135deg,var(--c-primary-deep),var(--c-primary));align-items:center;justify-content:center;display:flex;">
+          <div class="info" style="text-align:center;align-items:center;">
+            <h3 style="color:#fff;">{lbl('allProducts', lang)}</h3>
+            <span class="go" style="color:#fff;">{products.products.length} {lang === 'zh' ? '个型号' : 'models'} →</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 数字亮点 -->
+  <section class="stats-band">
+    <div class="container grid">
+      {site.stats.map((s) => (
+        <div class="reveal">
+          <div class="stat-num" data-countup={s.value}>0</div>
+          <div class="stat-label">{t(s.label, lang)}</div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- 新闻中心 -->
+  <section class="section alt">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="bar"></div>
+        <h2>{lbl('newsSection', lang)}</h2>
+        <p class="sub">{lbl('newsSectionSub', lang)}</p>
+      </div>
+      <div class="news-split">
+        <a class="news-hot reveal" href={`${p}/news/${hot.slug}/`}>
+          <img src={hot.thumb} alt={t(hot.title, lang)} width="640" height="400" loading="lazy" />
+          <div class="mask"></div>
+          <div class="cap">
+            <span class="date-pill">{hot.date}</span>
+            <h3>{t(hot.title, lang)}</h3>
+          </div>
+        </a>
+        <div class="news-list-side reveal reveal-d1">
+          {latest.slice(1).map((n) => (
+            <a class="item" href={`${p}/news/${n.slug}/`}>
+              <span class="date">{n.date}</span>
+              <span class="ttl">{t(n.title, lang)}</span>
+            </a>
+          ))}
+          <div class="news-side-more">
+            <a class="btn btn-primary btn-sm" href={p + '/news/'}>{lbl('viewAll', lang)} →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 关于恒星 -->
+  <section class="section">
+    <div class="container about-split">
+      <div class="pic-wrap reveal">
+        <div class="pic-brand">
+          <span class="logo-tile"><img src="/assets/img/brand-logo.jpg" alt={lang === 'zh' ? '恒星科技商标' : 'Hengxing Technology logo'} width="154" height="160" loading="lazy" /></span>
+          <div class="brand-name">恒星科技<span>HENGXING TECHNOLOGY</span></div>
+        </div>
+        <div class="pic-badge">{lbl('certBadge', lang)}</div>
+      </div>
+      <div class="reveal reveal-d1">
+        <div class="section-head" style="text-align:left;margin:0 0 22px;">
+          <div class="bar" style="margin:0 0 14px;"></div>
+          <h2>{lbl('aboutSection', lang)}</h2>
+          <p class="sub">{lbl('aboutSectionSub', lang)}</p>
+        </div>
+        <p>{t(site.intro.short, lang)}</p>
+        <a class="btn btn-primary" href={p + '/about/'}>{lbl('learnMore', lang)}</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-band">
+    <div class="container inner">
+      <div>
+        <h2>{t(c.slogan, lang)}</h2>
+        <p>{lbl('salesHotline', lang)}：{c.salesPhones.join(' / ')}</p>
+      </div>
+      <a class="btn btn-primary" href={p + '/contact/'}>{lbl('inquiryNow', lang)}</a>
+    </div>
+  </section>
+</Base>
+
+<script>
+  // 首页轮播：自动播放（时长由 section 的 data-interval 配置，毫秒）+ 圆点/箭头切换 + 悬停暂停
+  const hero = document.getElementById('hero');
+  if (hero) {
+    const INTERVAL = parseInt(hero.dataset.interval || '5500', 10);
+    hero.style.setProperty('--hero-dur', INTERVAL + 'ms');
+    const slides = hero.querySelectorAll('.hero-slide');
+    const dotsWrap = hero.querySelector('[data-dots]');
+    const idxEl = hero.querySelector('[data-idx]');
+    const pad = (n: number) => String(n).padStart(2, '0');
+    let cur = 0;
+    let timer: ReturnType<typeof setInterval> | null = null;
+
+    const dots: HTMLButtonElement[] = Array.from(slides).map((_, i) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.setAttribute('aria-label', `slide ${i + 1}/${slides.length}`);
+      b.addEventListener('click', () => { show(i); start(); });
+      dotsWrap?.appendChild(b);
+      return b;
+    });
+
+    const show = (i: number) => {
+      cur = (i + slides.length) % slides.length;
+      slides.forEach((s, j) => s.classList.toggle('active', j === cur));
+      dots.forEach((d, j) => d.classList.toggle('active', j === cur));
+      if (idxEl) idxEl.textContent = `${pad(cur + 1)} / ${pad(slides.length)}`;
+    };
+    const stop = () => { if (timer) { clearInterval(timer); timer = null; } };
+    const start = () => { stop(); timer = setInterval(() => show(cur + 1), INTERVAL); };
+    // 重启当前圆点的进度动画（同一张图再次激活时需要强制重播）
+    const pulse = () => {
+      const d = dots[cur];
+      if (!d) return;
+      d.classList.remove('active');
+      void (d as HTMLElement).offsetWidth;
+      d.classList.add('active');
+    };
+
+    show(0);
+    start();
+
+    hero.querySelector('[data-prev]')?.addEventListener('click', () => { show(cur - 1); start(); });
+    hero.querySelector('[data-next]')?.addEventListener('click', () => { show(cur + 1); start(); });
+    hero.addEventListener('mouseenter', () => stop());
+    hero.addEventListener('mouseleave', () => { pulse(); start(); });
+  }
+
+  // 数字亮点：进入视口时滚动计数
+  const counters = document.querySelectorAll<HTMLElement>('[data-countup]');
+  const cio = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      if (!e.isIntersecting) continue;
+      cio.unobserve(e.target);
+      const el = e.target as HTMLElement;
+      const raw = el.dataset.countup || '';
+      const num = parseInt(raw.replace(/[^\d]/g, ''), 10) || 0;
+      const affix = raw.replace(/[\d,]/g, '');
+      const dur = 1600;
+      const t0 = performance.now();
+      const tick = (t: number) => {
+        const k = Math.min((t - t0) / dur, 1);
+        const eased = 1 - Math.pow(1 - k, 3);
+        el.textContent = Math.round(num * eased).toLocaleString() + affix;
+        if (k < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    }
+  }, { threshold: 0.4 });
+  counters.forEach((el) => cio.observe(el));
+</script>

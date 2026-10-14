@@ -1,0 +1,194 @@
+---
+import Base from '../../layouts/Base.astro';
+import { site, ui, products, t, pref, lbl } from '../../lib/site.js';
+
+interface Props { lang: 'zh' | 'en'; }
+const { lang } = Astro.props;
+const p = pref(lang);
+const tdk = ui.tdk.contact[lang];
+const c = site.company;
+---
+
+<Base lang={lang} title={tdk.title} desc={tdk.desc} kw={tdk.kw} path="/contact/">
+  <section class="page-banner page-banner--contact">
+    <div class="container">
+      <h1>{lbl('pageTitleContact', lang)}</h1>
+      <p class="crumb">
+        <a href={p + '/'}>{lbl('breadcrumbHome', lang)}</a><span class="sep">/</span>{lbl('pageTitleContact', lang)}
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container contact-layout">
+      <div>
+        <div class="info-card reveal">
+          <div class="ic">📍</div>
+          <div>
+            <h3>{lbl('addressLabel', lang)}</h3>
+            <p>{t(c.address, lang)}</p>
+          </div>
+        </div>
+        <div class="info-card reveal reveal-d1">
+          <div class="ic">📞</div>
+          <div>
+            <h3>{lbl('salesHotline', lang)}</h3>
+            <p>{c.salesPhones[0]}<small>{c.salesPhones[1]}</small></p>
+            <h3 style="margin-top:14px;">{lbl('serviceHotline', lang)}</h3>
+            <p>{c.servicePhones[0]}<small>{c.servicePhones[1]}</small></p>
+          </div>
+        </div>
+        <div class="info-card reveal reveal-d2">
+          <div class="ic">✉️</div>
+          <div>
+            <h3>{lbl('emailLabel', lang)}</h3>
+            <p>{c.email}</p>
+          </div>
+        </div>
+        <div class="info-card reveal reveal-d3">
+          <div class="ic">💬</div>
+          <div>
+            <h3>{lbl('followUs', lang)}</h3>
+            <img src="/assets/img/wechat-qr.png?v=1" alt={lbl('qrPlaceholder', lang)} width="110" height="110" loading="lazy" style="border-radius:10px;margin-top:6px;" />
+            <p style="font-size:14px;font-weight:400;color:var(--c-text-2);margin-top:6px;">{lbl('qrPlaceholder', lang)}</p>
+          </div>
+        </div>
+        <a
+          class="video-ph reveal reveal-d3"
+          style="margin-top:4px;display:block;"
+          href="https://map.baidu.com/poi/%E5%8D%8E%E4%BA%BF%E7%A7%91%E5%AD%A6%E5%9B%AD-F%E5%BA%A7/@13049180,3722808,16z?uid=a4ad5f3e7d595792a21de934&ugc_type=3&ugc_ver=1&device_ratio=1&compat=1&querytype=detailConInfo&da_src=shareurl"
+          target="_blank"
+          rel="noopener noreferrer"
+          title={lbl('mapPlaceholder', lang)}
+        >
+          <img src="/assets/img/map-baidu.png" alt={lbl('mapPlaceholder', lang)} width="1219" height="610" loading="lazy" />
+          <div class="cap">{lbl('mapPlaceholder', lang)}</div>
+        </a>
+      </div>
+
+      <form class="contact-form reveal reveal-d1" id="inquiryForm" novalidate>
+        <h2>{lbl('onlineInquiry', lang)}</h2>
+        <p class="hint">{lang === 'zh' ? '带 * 为必填项，我们将在一个工作日内与您联系。' : 'Fields marked * are required. We will contact you within one business day.'}</p>
+        <p class="hint" style="margin-top:8px;">{lbl('boardNote', lang)}</p>
+        <p style="margin:12px 0 0;"><a href={p + '/board/'} style="color:var(--c-primary-deep);font-weight:600;">{lbl('contactBoardLink', lang)}</a></p>
+
+        <div class="form-row">
+          <div class="fg" data-field>
+            <label for="f-name">{lbl('formName', lang)}<span class="req">*</span></label>
+            <input id="f-name" name="name" type="text" autocomplete="name" required />
+            <p class="err">{lang === 'zh' ? '请填写姓名' : 'Please enter your name'}</p>
+          </div>
+          <div class="fg" data-field>
+            <label for="f-phone">{lbl('formPhone', lang)}<span class="req">*</span></label>
+            <input id="f-phone" name="phone" type="tel" autocomplete="tel" required />
+            <p class="err">{lang === 'zh' ? '请填写正确的联系电话' : 'Please enter a valid phone number'}</p>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="fg">
+            <label for="f-company">{lbl('formCompany', lang)}</label>
+            <input id="f-company" name="company" type="text" autocomplete="organization" />
+          </div>
+          <div class="fg" data-field>
+            <label for="f-email">{lbl('formEmail', lang)}</label>
+            <input id="f-email" name="email" type="email" autocomplete="email" />
+          </div>
+        </div>
+        <div class="fg">
+          <label for="f-product">{lbl('formProduct', lang)}</label>
+          <select id="f-product" name="product">
+            <option value="">{lbl('formSelectProduct', lang)}</option>
+            {products.products.map((prod) => (
+              <option value={prod.model}>{prod.model} — {t(prod.name, lang)}</option>
+            ))}
+          </select>
+        </div>
+        <div class="fg" data-field>
+          <label for="f-message">{lbl('formMessage', lang)}<span class="req">*</span></label>
+          <textarea id="f-message" name="message" required></textarea>
+          <p class="err">{lang === 'zh' ? '请填写留言内容' : 'Please enter your message'}</p>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">{lbl('formSubmit', lang)}</button>
+        <div
+          class="form-result"
+          id="formResult"
+          role="status"
+          data-ok-demo={`${lbl('formSuccessTitle', lang)}｜${lbl('formSuccessDemo', lang)}`}
+          data-ok-real={lang === 'zh' ? '提交成功！我们将在一个工作日内与您联系。' : 'Submitted! We will contact you within one business day.'}
+          data-fail={lbl('formError', lang)}
+        ></div>
+      </form>
+    </div>
+  </section>
+</Base>
+
+<script>
+  // 询价表单：前端校验 → 提交到 window.HX_FORM_ENDPOINT（为空则为演示模式）
+  const form = document.getElementById('inquiryForm') as HTMLFormElement | null;
+  const result = document.getElementById('formResult');
+  if (form) {
+    // 从 URL 预选意向产品（产品详情页“在线询价”跳转携带 ?product=）
+    const preset = new URLSearchParams(location.search).get('product');
+    if (preset) {
+      const sel = form.querySelector<HTMLSelectElement>('#f-product');
+      if (sel) {
+        [...sel.options].forEach((o) => { if (o.value === preset) sel.value = preset; });
+      }
+    }
+
+    const validate = (): boolean => {
+      let ok = true;
+      form.querySelectorAll<HTMLElement>('[data-field]').forEach((fg) => {
+        const input = fg.querySelector('input, textarea') as HTMLInputElement | HTMLTextAreaElement | null;
+        if (!input) return;
+        // 选填字段（如邮箱）留空直接放行；填了则仍走下方格式校验
+        if (!input.required && !input.value.trim()) return;
+        let valid = input.value.trim().length > 0;
+        if (input.name === 'phone') valid = /^[\d\s\-+()]{7,20}$/.test(input.value.trim());
+        if (input.name === 'email' && input.value.trim()) valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim());
+        fg.classList.toggle('invalid', !valid);
+        if (!valid) ok = false;
+      });
+      return ok;
+    };
+    form.querySelectorAll('input, textarea').forEach((el) =>
+      el.addEventListener('input', () => el.closest('[data-field]')?.classList.remove('invalid'))
+    );
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!validate()) return;
+      const btn = form.querySelector('button[type=submit]') as HTMLButtonElement;
+      btn.disabled = true;
+      const data = Object.fromEntries(new FormData(form).entries());
+      const endpoint = (window as any).HX_FORM_ENDPOINT as string;
+      try {
+        if (endpoint) {
+          const res = await fetch(endpoint, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ ...data, lang: document.documentElement.lang, time: new Date().toISOString() }),
+          });
+          if (!res.ok) throw new Error(String(res.status));
+        }
+        if (result) {
+          result.className = 'form-result ok';
+          result.textContent = endpoint ? result.dataset.okReal || '' : result.dataset.okDemo || '';
+        }
+        form.reset();
+      } catch {
+        if (result) {
+          result.className = 'form-result fail';
+          // 指向本机管理服务（4173）时，失败多为服务未启动或防火墙拦截，给出可操作的提示
+          const hint = endpoint && endpoint.includes(':4173')
+            ? '（本机测试提示：请先在服务器上双击“启动后台管理.bat”，确认服务已启动后再试）'
+            : '';
+          result.textContent = (result.dataset.fail || '') + hint;
+        }
+      } finally {
+        btn.disabled = false;
+      }
+    });
+  }
+</script>

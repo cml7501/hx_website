@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="360" viewBox="0 0 1920 360" role="img" aria-label="关于我们主题底纹">
+  <!-- 透明底，叠加在标准蓝色渐变横幅之上； motifs 集中在右侧，左侧留白给标题 -->
+  <defs>
+    <radialGradient id="glow" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- 细网格（与首页 hero 同语言） -->
+  <g stroke="#FFFFFF" opacity=".05">
+    <line x1="0" y1="45" x2="1920" y2="45"/><line x1="0" y1="90" x2="1920" y2="90"/>
+    <line x1="0" y1="135" x2="1920" y2="135"/><line x1="0" y1="180" x2="1920" y2="180"/>
+    <line x1="0" y1="225" x2="1920" y2="225"/><line x1="0" y1="270" x2="1920" y2="270"/>
+    <line x1="0" y1="315" x2="1920" y2="315"/>
+  </g>
+
+  <!-- 背景光晕与雷达环 -->
+  <circle cx="1050" cy="80" r="70" fill="url(#glow)"/>
+  <circle cx="1290" cy="310" r="85" fill="url(#glow)"/>
+  <circle cx="1810" cy="140" r="130" fill="url(#glow)"/>
+  <g fill="none" stroke="#FFFFFF" opacity=".08">
+    <circle cx="1920" cy="180" r="70"/>
+    <circle cx="1920" cy="180" r="130"/>
+    <circle cx="1920" cy="180" r="190"/>
+  </g>
+  <circle cx="1900" cy="30" r="230" fill="#FFFFFF" opacity=".06"/>
+
+  <!-- 恒星之光：主星 + 小星 -->
+  <g transform="translate(1240 88)">
+    <path d="M0 -28 C3.5 -9 9 -3.5 28 0 C9 3.5 3.5 9 0 28 C-3.5 9 -9 3.5 -28 0 C-9 -3.5 -3.5 -9 0 -28 Z" fill="#F4C542" opacity=".7"/>
+    <circle r="5" fill="#FFFFFF" opacity=".9"/>
+  </g>
+  <g fill="#FFFFFF">
+    <path transform="translate(1296 148) scale(.4)" d="M0 -28 C3.5 -9 9 -3.5 28 0 C9 3.5 3.5 9 0 28 C-3.5 9 -9 3.5 -28 0 C-9 -3.5 -3.5 -9 0 -28 Z" opacity=".8"/>
+    <path transform="translate(1178 156) scale(.3)" d="M0 -28 C3.5 -9 9 -3.5 28 0 C9 3.5 3.5 9 0 28 C-3.5 9 -9 3.5 -28 0 C-9 -3.5 -3.5 -9 0 -28 Z" opacity=".7"/>
+    <path transform="translate(1560 52) scale(.35)" d="M0 -28 C3.5 -9 9 -3.5 28 0 C9 3.5 3.5 9 0 28 C-3.5 9 -9 3.5 -28 0 C-9 -3.5 -3.5 -9 0 -28 Z" opacity=".7"/>
+  </g>
+
+  <!-- 公司楼宇群 -->
+  <g stroke="#FFFFFF" fill="none">
+    <!-- 左侧裙楼 -->
+    <rect x="1294" y="201" width="40" height="64" stroke-width="2" fill="#FFFFFF" fill-opacity=".05"/>
+    <g fill="#FFFFFF" fill-opacity=".4" stroke="none">
+      <rect x="1302" y="210" width="7" height="7"/><rect x="1318" y="210" width="7" height="7"/>
+      <rect x="1302" y="226" width="7" height="7"/><rect x="1318" y="226" width="7" height="7"/>
+      <rect x="1302" y="242" width="7" height="7"/><rect x="1318" y="242" width="7" height="7"/>
+    </g>
+    <!-- 主塔楼 -->
+    <rect x="1340" y="145" width="56" height="120" rx="2" stroke-width="2.5" fill="#FFFFFF" fill-opacity=".07"/>
+    <g fill="#FFFFFF" fill-opacity=".45" stroke="none">
+      <rect x="1350" y="157" width="8" height="7"/><rect x="1364" y="157" width="8" height="7"/><rect x="1378" y="157" width="8" height="7"/>
+      <rect x="1350" y="175" width="8" height="7"/><rect x="1364" y="175" width="8" height="7"/><rect x="1378" y="175" width="8" height="7"/>
+      <rect x="1350" y="193" width="8" height="7"/><rect x="1364" y="193" width="8" height="7"/><rect x="1378" y="193" width="8" height="7"/>
+      <rect x="1350" y="211" width="8" height="7"/><rect x="1364" y="211" width="8" height="7"/><rect x="1378" y="211" width="8" height="7"/>
+      <rect x="1350" y="229" width="8" height="7"/><rect x="1364" y="229" width="8" height="7"/><rect x="1378" y="229" width="8" height="7"/>
+    </g>
+    <line x1="1368" y1="145" x2="1368" y2="120" stroke-width="2.5"/>
+    <path d="M1368 120 l22 6 -22 6 Z" fill="#F4C542" fill-opacity=".85" stroke="none"/>
+    <!-- 右侧塔楼 -->
+    <rect x="1404" y="179" width="48" height="86" rx="2" stroke-width="2.5" fill="#FFFFFF" fill-opacity=".05"/>
+    <g fill="#FFFFFF" fill-opacity=".4" stroke="none">
+      <rect x="1413" y="190" width="8" height="7"/><rect x="1433" y="190" width="8" height="7"/>
+      <rect x="1413" y="208" width="8" height="7"/><rect x="1433" y="208" width="8" height="7"/>
+      <rect x="1413" y="226" width="8" height="7"/><rect x="1433" y="226" width="8" height="7"/>
+    </g>
+    <line x1="1280" y1="265" x2="1466" y2="265" stroke-width="2.5" opacity=".6"/>
+  </g>
+
+  <!-- 地球 -->
+  <g transform="translate(1648 150)" stroke="#FFFFFF" fill="none">
+    <circle r="52" stroke-width="2.5" fill="#FFFFFF" fill-opacity=".07"/>
+    <ellipse rx="52" ry="20" stroke-width="1.5" opacity=".5"/>
+    <ellipse rx="20" ry="52" stroke-width="1.5" opacity=".5"/>
+    <line x1="-47" y1="-22" x2="47" y2="-22" stroke-width="1.5" opacity=".4"/>
+    <line x1="-47" y1="22" x2="47" y2="22" stroke-width="1.5" opacity=".4"/>
+    <circle cx="34" cy="-32" r="4" fill="#F4C542" fill-opacity=".8" stroke="none"/>
+  </g>
+
+  <!-- 增长曲线 -->
+  <g fill="none" stroke="#FFFFFF">
+    <path d="M1556 286 L1596 244 L1636 258 L1698 206" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".8"/>
+    <path d="M1686 204 L1698 206 L1694 219" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".8"/>
+    <circle cx="1556" cy="286" r="4" fill="#FFFFFF" fill-opacity=".9" stroke="none"/>
+    <circle cx="1596" cy="244" r="4" fill="#FFFFFF" fill-opacity=".9" stroke="none"/>
+    <circle cx="1636" cy="258" r="4" fill="#F4C542" fill-opacity=".9" stroke="none"/>
+  </g>
+
+  <!-- 荣誉奖章 -->
+  <g transform="translate(1756 242)" stroke="#FFFFFF" fill="none">
+    <rect x="-16" y="-16" width="10" height="26" rx="2" stroke-width="2" fill="#FFFFFF" fill-opacity=".25" transform="rotate(-15 -11 -3)"/>
+    <rect x="6" y="-16" width="10" height="26" rx="2" stroke-width="2" fill="#FFFFFF" fill-opacity=".25" transform="rotate(15 11 -3)"/>
+    <circle cy="8" r="18" stroke-width="2.5" fill="#FFFFFF" fill-opacity=".12"/>
+    <circle cy="8" r="12" stroke-width="1.5" opacity=".4"/>
+    <path d="M0 1 L2.1 5.8 7 5.8 3.1 8.9 4.5 13.8 0 11 -4.5 13.8 -3.1 8.9 -7 5.8 -2.1 5.8 Z" fill="#F4C542" fill-opacity=".85" stroke="none"/>
+  </g>
+
+  <!-- 团队人物 -->
+  <g transform="translate(1190 252)" stroke="#FFFFFF" fill="none" stroke-width="2.5">
+    <circle cx="0" cy="0" r="7"/>
+    <path d="M-12 26 C-12 13 12 13 12 26"/>
+    <circle cx="44" cy="-8" r="7" fill="#F4C542" fill-opacity=".7" stroke="none"/>
+    <path d="M32 20 C32 7 56 7 56 20"/>
+    <circle cx="88" cy="0" r="7"/>
+    <path d="M76 26 C76 13 100 13 100 26"/>
+  </g>
+
+  <!-- 医疗十字与散点 -->
+  <g stroke="#FFFFFF" stroke-width="3" opacity=".15">
+    <line x1="1090" y1="50" x2="1122" y2="50"/><line x1="1106" y1="34" x2="1106" y2="66"/>
+    <line x1="1856" y1="76" x2="1888" y2="76"/><line x1="1872" y1="60" x2="1872" y2="92"/>
+  </g>
+  <g fill="#FFFFFF" opacity=".5">
+    <circle cx="1060" cy="230" r="4"/>
+    <circle cx="1310" cy="300" r="3"/>
+    <circle cx="1720" cy="120" r="3"/>
+    <circle cx="1782" cy="66" r="2.5"/>
+  </g>
+  <g fill="#F4C542" opacity=".35">
+    <circle cx="1540" cy="96" r="4"/>
+    <circle cx="1620" cy="240" r="3"/>
+  </g>
+</svg>

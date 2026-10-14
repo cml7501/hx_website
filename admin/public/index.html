@@ -1,0 +1,663 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex,nofollow" />
+<title>恒星官网 · 内容管理</title>
+<style>
+  :root { --blue: #2f6fc4; --deep: #1d4e94; --bg: #f5f7fa; --line: #e4e9f0; --danger: #c0392b; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Microsoft YaHei', 'PingFang SC', sans-serif; background: var(--bg); color: #333; font-size: 15px; }
+  header { background: linear-gradient(115deg, var(--deep), var(--blue)); color: #fff; padding: 22px 30px; position: relative; }
+  header h1 { font-size: 21px; margin-bottom: 4px; }
+  header p { opacity: .8; font-size: 13px; }
+  #logoutBtn { position: absolute; right: 30px; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,.16); color: #fff; }
+  #logoutBtn:hover { background: rgba(255,255,255,.3); }
+  /* 登录遮罩 */
+  #loginMask { display: none; position: fixed; inset: 0; background: linear-gradient(115deg, rgba(29,78,148,.94), rgba(47,111,196,.94)); z-index: 99; align-items: center; justify-content: center; }
+  .login-box { background: #fff; border-radius: 14px; padding: 36px 40px; width: min(92%, 380px); box-shadow: 0 18px 60px rgba(6,30,70,.4); text-align: center; }
+  .login-box h2 { color: var(--deep); font-size: 20px; margin-bottom: 8px; }
+  .login-box .sub { color: #888; font-size: 13px; line-height: 1.7; margin-bottom: 18px; }
+  .login-box input { text-align: center; letter-spacing: 2px; font-size: 16px; margin-bottom: 12px; }
+  .login-box .btn { width: 100%; padding: 11px; font-size: 15px; }
+  .login-box .err { color: var(--danger); font-size: 13px; min-height: 18px; margin-top: 10px; }
+  main { max-width: 1080px; margin: 26px auto; padding: 0 20px 60px; }
+  .tabs { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+  .tabs button { padding: 10px 26px; border-radius: 30px; border: 1px solid var(--line); background: #fff; font-size: 15px; cursor: pointer; }
+  .tabs button.active { background: var(--blue); color: #fff; border-color: var(--blue); }
+  .card { background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(6,46,99,.08); padding: 24px; margin-bottom: 20px; }
+  .card h2 { font-size: 17px; color: var(--deep); margin-bottom: 16px; }
+  .list-item { display: flex; align-items: center; gap: 14px; padding: 11px 6px; border-bottom: 1px solid var(--line); }
+  .list-item .date { color: var(--blue); font-weight: 700; font-size: 14px; min-width: 96px; }
+  .list-item .t { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .list-item .ops { display: flex; gap: 8px; }
+  .btn { padding: 8px 18px; border-radius: 20px; border: 0; cursor: pointer; font-size: 14px; background: var(--bg); }
+  .btn.pri { background: var(--blue); color: #fff; }
+  .btn.danger { background: #fdecea; color: var(--danger); }
+  .btn:disabled { opacity: .5; cursor: not-allowed; }
+  form.editor { display: grid; gap: 14px; }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  label { display: block; font-size: 13.5px; color: #555; margin-bottom: 5px; font-weight: 600; }
+  label small { color: #999; font-weight: 400; }
+  input, textarea, select { width: 100%; padding: 9px 12px; border: 1px solid var(--line); border-radius: 7px; font-size: 14px; font-family: inherit; }
+  input:focus, textarea:focus { outline: 0; border-color: var(--blue); }
+  textarea { min-height: 90px; resize: vertical; }
+  .hint { font-size: 13px; color: #888; background: var(--bg); border-radius: 7px; padding: 10px 14px; }
+  #buildBar { position: sticky; bottom: 14px; background: var(--deep); color: #fff; border-radius: 12px; padding: 14px 20px; display: flex; align-items: center; gap: 16px; box-shadow: 0 8px 24px rgba(6,46,99,.3); flex-wrap: wrap; }
+  #buildBar .st { font-size: 13.5px; opacity: .85; flex: 1; min-width: 200px; }
+  #log { background: #10233f; color: #b8e0c0; font-family: Consolas, monospace; font-size: 12.5px; border-radius: 8px; padding: 14px; max-height: 220px; overflow: auto; white-space: pre-wrap; display: none; margin-top: 14px; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: #666; font-size: 13px; }
+  .empty { color: #999; text-align: center; padding: 26px 0; }
+  /* 询价记录：状态标签与原留言引用 */
+  .status-tag { display: inline-block; padding: 2px 10px; border-radius: 10px; font-size: 12px; white-space: nowrap; }
+  .status-tag.pub { background: #e8f5e9; color: #2e7d32; }
+  .status-tag.rep { background: #e3f2fd; color: #1565c0; }
+  .status-tag.new { background: #fff3e0; color: #b26a00; }
+  .inq-orig { background: var(--bg); border-left: 3px solid var(--blue); border-radius: 6px; padding: 10px 14px; font-size: 13.5px; color: #555; margin-bottom: 14px; white-space: pre-wrap; word-break: break-all; }
+  /* 缩略图选择器 */
+  .thumb-picker { display: flex; gap: 14px; align-items: flex-start; }
+  #n-thumb-preview { width: 132px; height: 83px; object-fit: cover; border-radius: 8px; border: 1px solid var(--line); background: #fff; flex: none; }
+  #p-img-preview { width: 110px; height: 110px; object-fit: contain; border-radius: 8px; border: 1px solid var(--line); background: #fff; flex: none; }
+  .thumb-grid { display: flex; flex-wrap: wrap; gap: 8px; max-height: 126px; overflow: auto; padding: 2px; }
+  .thumb-cell { position: relative; display: block; width: 84px; height: 53px; border-radius: 6px; border: 2px solid var(--line); overflow: hidden; cursor: pointer; background: #fff; padding: 0; flex: none; }
+  .thumb-cell img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .thumb-cell .tdel { position: absolute; top: 2px; right: 2px; width: 18px; height: 18px; border-radius: 50%; background: rgba(192, 57, 43, .92); color: #fff; font-style: normal; font-size: 13px; line-height: 18px; text-align: center; cursor: pointer; display: none; }
+  .thumb-cell:hover .tdel { display: block; }
+  .thumb-cell .tdel:hover { background: #a93226; }
+  .thumb-cell.sel { border-color: var(--blue); box-shadow: 0 0 0 2px rgba(47,111,196,.25); }
+  .thumb-ops { margin-top: 8px; display: flex; gap: 10px; align-items: center; font-size: 12.5px; color: #999; flex-wrap: wrap; }
+  .list-item .lthumb { width: 64px; height: 40px; object-fit: cover; border-radius: 5px; border: 1px solid var(--line); flex: none; background: #fff; }
+  @media (max-width: 760px) { .row { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>恒星官网 · 内容管理</h1>
+  <p>在此新增或修改新闻与产品信息，点击底部"保存并重新生成网站"即可生效（IIS 站点无需重启）。招聘与荣誉信息如需修改，请联系开发人员。</p>
+  <button class="btn" id="logoutBtn">退出登录</button>
+</header>
+<main>
+  <div class="tabs">
+    <button class="active" data-tab="news">新闻管理</button>
+    <button data-tab="products">产品管理</button>
+    <button data-tab="inquiries">询价记录</button>
+  </div>
+
+  <div id="tab-news">
+    <div class="card">
+      <h2>新闻列表</h2>
+      <div style="margin-bottom:12px;"><button class="btn pri" onclick="editNews(-1)">＋ 新增新闻</button></div>
+      <div id="newsList"></div>
+    </div>
+    <div class="card" id="newsEditor" style="display:none;">
+      <h2 id="newsEditorTitle">编辑新闻</h2>
+      <form class="editor" onsubmit="return saveNews(event)">
+        <div class="row">
+          <div><label>日期 <small>格式 2026-01-31</small></label><input id="n-date" required /></div>
+          <div><label>网址名 slug <small>仅小写字母/数字/连字符，如 2026-03-new-product</small></label><input id="n-slug" required /></div>
+        </div>
+        <div class="row">
+          <div><label>中文标题</label><input id="n-title-zh" required /></div>
+          <div><label>英文标题 <small>留空则沿用中文</small></label><input id="n-title-en" /></div>
+        </div>
+        <div class="row">
+          <div><label>中文摘要</label><textarea id="n-sum-zh" style="min-height:64px"></textarea></div>
+          <div><label>英文摘要 <small>留空则沿用中文</small></label><textarea id="n-sum-en" style="min-height:64px"></textarea></div>
+        </div>
+        <div><label>中文正文 <small>每个空行分为一段</small></label><textarea id="n-body-zh" style="min-height:180px" required></textarea></div>
+        <div><label>英文正文 <small>留空则沿用中文</small></label><textarea id="n-body-en" style="min-height:120px"></textarea></div>
+        <div class="row">
+          <div>
+          <label>缩略图 <small>点击小图选用；或上传新图片（jpg / png / webp / svg，≤5MB，建议 640×400 横图）</small></label>
+          <div class="thumb-picker">
+            <img id="n-thumb-preview" alt="缩略图预览" />
+            <div style="flex:1; min-width:0;">
+              <input type="hidden" id="n-thumb" />
+              <div class="thumb-grid" id="n-thumb-grid"></div>
+              <div class="thumb-ops">
+                <button type="button" class="btn" id="n-thumb-upload-btn">上传新图片</button>
+                <input type="file" id="n-thumb-file" accept="image/*" hidden />
+                <span>上传后自动选用；鼠标移到上传图上点 × 可删除（被新闻引用的需先改图）。点底部"保存并重新生成网站"后生效到前台。</span>
+              </div>
+            </div>
+          </div>
+        </div>
+          <div style="align-self:end;"><button type="submit" class="btn pri">暂存这条新闻</button></div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="tab-products" style="display:none;">
+    <div class="card">
+      <h2>产品列表 <small style="font-weight:400;color:#999">（改动需点底部"保存并重新生成网站"后生效）</small></h2>
+      <div style="margin-bottom:12px;"><button class="btn pri" onclick="editProd(-1)">＋ 新增产品</button></div>
+      <div id="prodList"></div>
+    </div>
+    <div class="card">
+      <h2>产品分类 <small style="font-weight:400;color:#999">（前台顶部的筛选标签；被产品使用的分类不可删除）</small></h2>
+      <div id="catList"></div>
+      <div class="row" style="margin-top:12px;">
+        <div><label>分类 id <small>仅小写字母/数字/连字符，如 urt</small></label><input id="c-id" placeholder="urt" /></div>
+        <div><label>分类名称 <small>格式：中文名 / English Name</small></label><input id="c-names" placeholder="尿液检测系统 / Urine Testing" /></div>
+      </div>
+      <div style="margin-top:10px;"><button type="button" class="btn" onclick="addCat()">＋ 新增分类</button></div>
+    </div>
+    <div class="card" id="prodEditor" style="display:none;">
+      <h2 id="prodEditorTitle">编辑产品</h2>
+      <form class="editor" onsubmit="return saveProd(event)">
+        <div class="row">
+          <div><label>型号</label><input id="p-model" required /></div>
+          <div><label>所属分类</label><select id="p-cat"></select></div>
+        </div>
+        <div><label>网址名 slug <small>仅小写字母/数字/连字符；改动会改变详情页网址，旧链接将失效，谨慎修改</small></label><input id="p-slug" required /></div>
+        <div class="row">
+          <div><label>中文名称</label><input id="p-name-zh" required /></div>
+          <div><label>英文名称</label><input id="p-name-en" /></div>
+        </div>
+        <div class="row">
+          <div><label>中文一句话定位</label><input id="p-tag-zh" /></div>
+          <div><label>英文一句话定位</label><input id="p-tag-en" /></div>
+        </div>
+        <div>
+          <label>产品图片 <small>点击小图选用；或上传新图片（jpg / png / webp / svg，≤5MB，建议白底产品照）</small></label>
+          <div class="thumb-picker">
+            <img id="p-img-preview" alt="产品图片预览" />
+            <div style="flex:1; min-width:0;">
+              <input type="hidden" id="p-image" />
+              <div class="thumb-grid" id="p-img-grid"></div>
+              <div class="thumb-ops">
+                <button type="button" class="btn" id="p-img-upload-btn">上传新图片</button>
+                <input type="file" id="p-img-file" accept="image/*" hidden />
+                <span>上传后自动选用；鼠标移到上传图上点 × 可删除（被产品或分类引用的需先改图）。</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div><label>中文产品特点 <small>每行一条</small></label><textarea id="p-feat-zh"></textarea></div>
+        <div><label>英文产品特点 <small>每行一条，留空沿用中文</small></label><textarea id="p-feat-en"></textarea></div>
+        <div class="row">
+          <div><label>适用领域（中文）</label><input id="p-apps-zh" /></div>
+          <div><label>适用领域（英文）</label><input id="p-apps-en" /></div>
+        </div>
+        <div class="row">
+          <div><label>技术参数（中文）<small>每行一条，冒号分隔：参数名：参数值</small></label><textarea id="p-params-zh"></textarea></div>
+          <div><label>技术参数（英文）<small>每行与左侧中文对应；留空的行沿用原英文或中文</small></label><textarea id="p-params-en"></textarea></div>
+        </div>
+        <div><button type="submit" class="btn pri">暂存这个产品</button></div>
+      </form>
+    </div>
+  </div>
+
+  <div id="tab-inquiries" style="display:none;">
+    <div class="card">
+      <h2>询价记录 <small style="font-weight:400;color:#999">（网站表单提交后收到的留言；点"回复"可答复，勾选公开后显示在网站留言板）</small></h2>
+      <div id="inqList"></div>
+    </div>
+    <div class="card" id="inqEditor" style="display:none;">
+      <h2 id="inqEditorTitle">回复留言</h2>
+      <div class="inq-orig" id="inqOrig"></div>
+      <form class="editor" onsubmit="return saveReply(event)">
+        <div><label>回复内容 <small>最多 2000 字；勾选"公开显示"后将发布到网站留言板并自动更新前台</small></label><textarea id="inq-reply" style="min-height:120px" required></textarea></div>
+        <div>
+          <label style="display:flex; align-items:center; gap:8px; cursor:pointer; font-weight:600;">
+            <input type="checkbox" id="inq-public" style="width:auto;" checked /> 公开显示在网站留言板（仅公开姓名与留言内容，电话/邮箱/单位永不公开）
+          </label>
+        </div>
+        <div style="display:flex; gap:10px;">
+          <button type="submit" class="btn pri" id="inq-save-btn">保存回复</button>
+          <button type="button" class="btn" onclick="closeInqEditor()">取消</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="buildBar">
+    <span class="st" id="buildStatus">有修改后请点击右侧按钮重新生成网站。</span>
+    <button class="btn pri" id="buildBtn" onclick="build()">保存并重新生成网站</button>
+  </div>
+  <div id="log"></div>
+</main>
+
+<div id="loginMask">
+  <div class="login-box">
+    <h2>恒星官网 · 内容管理</h2>
+    <p class="sub">请输入管理密码登录。忘记密码请在服务器上运行 <b>npm run admin-passwd -- 新密码</b> 重设。</p>
+    <input type="password" id="loginPwd" placeholder="管理密码" autocomplete="current-password" />
+    <button class="btn pri" id="loginBtn">登 录</button>
+    <p class="err" id="loginErr"></p>
+  </div>
+</div>
+
+<script>
+const state = { news: [], products: null, dirty: false };
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+/* ---------- 登录与会话 ---------- */
+function showLogin(msg) {
+  $('loginMask').style.display = 'flex';
+  $('loginErr').textContent = msg || '';
+  $('loginPwd').value = '';
+  setTimeout(() => $('loginPwd').focus(), 60);
+}
+async function doLogin() {
+  const pwd = $('loginPwd').value;
+  if (!pwd) return;
+  $('loginBtn').disabled = true; $('loginErr').textContent = '';
+  try {
+    const r = await fetch('/api/login', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ password: pwd }) });
+    const d = await r.json();
+    if (!d.ok) throw new Error(d.error || '登录失败');
+    $('loginMask').style.display = 'none';
+    load();
+  } catch (e) { $('loginErr').textContent = e.message || String(e); }
+  finally { $('loginBtn').disabled = false; }
+}
+$('loginBtn').addEventListener('click', doLogin);
+$('loginPwd').addEventListener('keydown', (e) => { if (e.key === 'Enter') doLogin(); });
+$('logoutBtn').addEventListener('click', async () => {
+  await fetch('/api/logout', { method: 'POST' });
+  showLogin('已退出登录');
+});
+// 带登录态检查的 fetch：任何接口返回 401 都自动弹出登录层
+async function api(url, opts) {
+  const r = await fetch(url, opts);
+  if (r.status === 401) { showLogin('会话已过期，请重新登录'); throw new Error('未登录'); }
+  return r;
+}
+
+async function load() {
+  const data = await (await api('/api/data')).json();
+  state.news = data.news;
+  state.products = data.products;
+  renderNewsList(); renderProdList(); renderCatList();
+  refreshProdCatSelect();
+}
+
+/* ---------- 缩略图素材库 ---------- */
+let thumbPool = []; // [{ p: 路径 }]，上传图在前、预设插图在后
+async function loadThumbs(sel) {
+  try {
+    const d = await (await api('/api/images')).json();
+    thumbPool = [...d.uploaded.map((p) => ({ p })), ...d.presets.map((p) => ({ p }))];
+  } catch { thumbPool = thumbPool.length ? thumbPool : []; }
+  setThumb(sel || $('n-thumb').value || thumbPool[0]?.p || '');
+}
+function renderThumbGrid(sel) {
+  $('n-thumb-grid').innerHTML = thumbPool.map(({ p }) => {
+    const del = p.startsWith('/assets/img/news/')
+      ? `<i class="tdel" data-del="${esc(p)}" title="删除此图">×</i>` : '';
+    return `<span class="thumb-cell ${p === sel ? 'sel' : ''}" data-p="${esc(p)}" title="${esc(p)}"><img src="${esc(p)}" alt="" loading="lazy" />${del}</span>`;
+  }).join('');
+  $('n-thumb-preview').src = sel || '';
+}
+function setThumb(p) { $('n-thumb').value = p; renderThumbGrid(p); }
+$('n-thumb-grid').addEventListener('click', async (e) => {
+  const del = e.target.closest('.tdel');
+  if (del) {
+    e.stopPropagation();
+    const p = del.dataset.del;
+    if (!confirm('确定删除这张上传的图片？')) return;
+    try {
+      const d = await (await api('/api/thumbs', { method: 'DELETE', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ path: p }) })).json();
+      if (!d.ok) throw new Error(d.error || '删除失败');
+      thumbPool = thumbPool.filter((t) => t.p !== p);
+      if ($('n-thumb').value === p) setThumb(thumbPool[0]?.p || '');
+      else renderThumbGrid($('n-thumb').value);
+    } catch (err) { alert(err.message || err); }
+    return;
+  }
+  const cell = e.target.closest('.thumb-cell');
+  if (cell) setThumb(cell.dataset.p);
+});
+$('n-thumb-upload-btn').addEventListener('click', () => $('n-thumb-file').click());
+$('n-thumb-file').addEventListener('change', async (e) => {
+  const f = e.target.files[0];
+  e.target.value = '';
+  if (!f) return;
+  if (f.size > 5 * 1024 * 1024) { alert('图片不能超过 5MB'); return; }
+  const btn = $('n-thumb-upload-btn');
+  btn.disabled = true; btn.textContent = '上传中…';
+  try {
+    const data = await new Promise((ok, err) => { const fr = new FileReader(); fr.onload = () => ok(fr.result); fr.onerror = err; fr.readAsDataURL(f); });
+    const d = await (await api('/api/upload', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ name: f.name, data }) })).json();
+    if (!d.ok) throw new Error(d.error || '上传失败');
+    thumbPool.unshift({ p: d.path });
+    setThumb(d.path);
+  } catch (err) { alert('上传失败：' + (err.message || err)); }
+  finally { btn.disabled = false; btn.textContent = '上传新图片'; }
+});
+
+/* ---------- 新闻 ---------- */
+let editingNewsIdx = -2;
+function renderNewsList() {
+  $('newsList').innerHTML = state.news.map((n, i) => `
+    <div class="list-item">
+      <img class="lthumb" src="${esc(n.thumb)}" alt="" />
+      <span class="date">${esc(n.date)}</span>
+      <span class="t">${esc(n.title.zh)}</span>
+      <span class="ops">
+        <button class="btn" onclick="editNews(${i})">编辑</button>
+        <button class="btn danger" onclick="delNews(${i})">删除</button>
+      </span>
+    </div>`).join('') || '<p class="empty">暂无新闻</p>';
+}
+function editNews(i) {
+  editingNewsIdx = i;
+  const n = i === -1 ? { date: new Date().toISOString().slice(0,10), slug: '', title:{zh:'',en:''}, summary:{zh:'',en:''}, body:{zh:[''],en:[]}, thumb:'/assets/ph/news-a.svg' } : state.news[i];
+  $('newsEditorTitle').textContent = i === -1 ? '新增新闻' : '编辑新闻';
+  $('n-date').value = n.date; $('n-slug').value = n.slug;
+  $('n-title-zh').value = n.title.zh; $('n-title-en').value = n.title.en || '';
+  $('n-sum-zh').value = n.summary?.zh || ''; $('n-sum-en').value = n.summary?.en || '';
+  $('n-body-zh').value = (n.body?.zh || []).join('\n\n'); $('n-body-en').value = (n.body?.en || []).join('\n\n');
+  $('n-thumb').value = n.thumb || '/assets/ph/news-a.svg';
+  loadThumbs(n.thumb);
+  $('newsEditor').style.display = ''; $('newsEditor').scrollIntoView({ behavior: 'smooth' });
+}
+function saveNews(e) {
+  e.preventDefault();
+  const split = (v) => v.split(/\n\s*\n/).map(s => s.trim()).filter(Boolean);
+  const bodyZh = split($('n-body-zh').value);
+  if (!bodyZh.length) { alert('请填写中文正文'); return false; }
+  const item = {
+    slug: $('n-slug').value.trim(), date: $('n-date').value.trim(), cat: 'company',
+    thumb: $('n-thumb').value,
+    title: { zh: $('n-title-zh').value.trim(), en: $('n-title-en').value.trim() || $('n-title-zh').value.trim() },
+    summary: { zh: $('n-sum-zh').value.trim() || bodyZh[0].slice(0, 80), en: $('n-sum-en').value.trim() || (split($('n-body-en').value)[0] || bodyZh[0]).slice(0, 160) },
+    body: { zh: bodyZh, en: split($('n-body-en').value) },
+  };
+  if (editingNewsIdx === -1) state.news.unshift(item);
+  else state.news[editingNewsIdx] = item;
+  state.news.sort((a, b) => a.date < b.date ? 1 : -1);
+  state.dirty = true; $('buildStatus').textContent = '已有未保存的修改，请点击右侧按钮重新生成网站。';
+  $('newsEditor').style.display = 'none'; renderNewsList();
+  return false;
+}
+function delNews(i) {
+  if (!confirm(`确定删除新闻「${state.news[i].title.zh}」？`)) return;
+  state.news.splice(i, 1); state.dirty = true; renderNewsList();
+  $('buildStatus').textContent = '已有未保存的修改，请点击右侧按钮重新生成网站。';
+}
+
+/* ---------- 产品图片素材库 ---------- */
+let prodPool = []; // [{ p: 路径 }]，上传图在前、预设插图在后
+async function loadProdThumbs(sel) {
+  try {
+    const d = await (await api('/api/images?type=products')).json();
+    prodPool = [...d.uploaded.map((p) => ({ p })), ...d.presets.map((p) => ({ p }))];
+  } catch { prodPool = prodPool.length ? prodPool : []; }
+  setProdImg(sel || $('p-image').value || prodPool[0]?.p || '');
+}
+function renderProdImgGrid(sel) {
+  $('p-img-grid').innerHTML = prodPool.map(({ p }) => {
+    const del = p.startsWith('/assets/img/products/')
+      ? `<i class="tdel" data-del="${esc(p)}" title="删除此图">×</i>` : '';
+    return `<span class="thumb-cell ${p === sel ? 'sel' : ''}" data-p="${esc(p)}" title="${esc(p)}"><img src="${esc(p)}" alt="" loading="lazy" />${del}</span>`;
+  }).join('');
+  $('p-img-preview').src = sel || '';
+}
+function setProdImg(p) { $('p-image').value = p; renderProdImgGrid(p); }
+$('p-img-grid').addEventListener('click', async (e) => {
+  const del = e.target.closest('.tdel');
+  if (del) {
+    e.stopPropagation();
+    const p = del.dataset.del;
+    if (!confirm('确定删除这张上传的产品图片？')) return;
+    try {
+      const d = await (await api('/api/thumbs', { method: 'DELETE', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ path: p }) })).json();
+      if (!d.ok) throw new Error(d.error || '删除失败');
+      prodPool = prodPool.filter((t) => t.p !== p);
+      if ($('p-image').value === p) setProdImg(prodPool[0]?.p || '');
+      else renderProdImgGrid($('p-image').value);
+    } catch (err) { alert(err.message || err); }
+    return;
+  }
+  const cell = e.target.closest('.thumb-cell');
+  if (cell) setProdImg(cell.dataset.p);
+});
+$('p-img-upload-btn').addEventListener('click', () => $('p-img-file').click());
+$('p-img-file').addEventListener('change', async (e) => {
+  const f = e.target.files[0];
+  e.target.value = '';
+  if (!f) return;
+  if (f.size > 5 * 1024 * 1024) { alert('图片不能超过 5MB'); return; }
+  const btn = $('p-img-upload-btn');
+  btn.disabled = true; btn.textContent = '上传中…';
+  try {
+    const data = await new Promise((ok, err) => { const fr = new FileReader(); fr.onload = () => ok(fr.result); fr.onerror = err; fr.readAsDataURL(f); });
+    const d = await (await api('/api/upload', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ name: f.name, data, dir: 'products' }) })).json();
+    if (!d.ok) throw new Error(d.error || '上传失败');
+    prodPool.unshift({ p: d.path });
+    setProdImg(d.path);
+  } catch (err) { alert('上传失败：' + (err.message || err)); }
+  finally { btn.disabled = false; btn.textContent = '上传新图片'; }
+});
+
+/* ---------- 产品：列表 / 新增 / 编辑 / 删除 ---------- */
+let editingProdSlug = null;      // null = 新增；字符串 = 正在编辑的产品 slug
+let editingProdOrig = null;      // 编辑前的原对象（用于英文参数回退与 slug 查重）
+function renderProdList() {
+  $('prodList').innerHTML = state.products.products.map((p) => `
+    <div class="list-item">
+      <img class="lthumb" src="${esc(p.image)}" alt="" />
+      <span class="date">${esc(p.model)}</span>
+      <span class="t">${esc(p.name.zh)} <small style="color:#999">/ ${esc(p.slug)}</small></span>
+      <span class="ops">
+        <button class="btn" onclick="editProd('${p.slug}')">编辑</button>
+        <button class="btn danger" onclick="delProd('${p.slug}')">删除</button>
+      </span>
+    </div>`).join('') || '<p class="empty">暂无产品</p>';
+}
+function markDirty() { state.dirty = true; $('buildStatus').textContent = '已有未保存的修改，请点击右侧按钮重新生成网站。'; }
+function editProd(slugOrNew) {
+  const isNew = slugOrNew === -1;
+  editingProdSlug = isNew ? null : slugOrNew;
+  const p = isNew
+    ? { slug: '', category: state.products.categories[0]?.id || '', model: '', name: { zh: '', en: '' }, tagline: { zh: '', en: '' }, image: '', features: { zh: [], en: [] }, apps: { zh: '', en: '' }, params: [] }
+    : state.products.products.find((x) => x.slug === slugOrNew);
+  if (!p) return;
+  editingProdOrig = isNew ? null : p;
+  $('prodEditorTitle').textContent = isNew ? '新增产品' : `编辑产品 · ${p.model}`;
+  $('p-model').value = p.model; $('p-cat').value = p.category;
+  $('p-slug').value = p.slug || '';
+  $('p-name-zh').value = p.name.zh; $('p-name-en').value = p.name.en || '';
+  $('p-tag-zh').value = p.tagline?.zh || ''; $('p-tag-en').value = p.tagline?.en || '';
+  $('p-feat-zh').value = (p.features?.zh || []).join('\n'); $('p-feat-en').value = (p.features?.en || []).join('\n');
+  $('p-apps-zh').value = p.apps?.zh || ''; $('p-apps-en').value = p.apps?.en || '';
+  $('p-params-zh').value = (p.params || []).map((r) => `${r.n.zh}：${r.v.zh}`).join('\n');
+  $('p-params-en').value = (p.params || []).map((r) => r.n.en || r.v.en ? `${r.n.en}：${r.v.en}` : '').join('\n');
+  loadProdThumbs(p.image);
+  $('prodEditor').style.display = ''; $('prodEditor').scrollIntoView({ behavior: 'smooth' });
+}
+function saveProd(e) {
+  e.preventDefault();
+  const slug = $('p-slug').value.trim();
+  if (!/^[a-z0-9-]+$/.test(slug)) { alert('slug 仅允许小写字母/数字/连字符'); return false; }
+  if (state.products.products.some((x) => x.slug === slug && x !== editingProdOrig)) { alert(`slug「${slug}」已被其他产品使用`); return false; }
+  if (!$('p-image').value) { alert('请选择产品图片'); return false; }
+  const isNew = editingProdSlug === null;
+  const p = isNew
+    ? { slug, category: $('p-cat').value, model: '', name: {}, tagline: {}, image: '', features: {}, apps: {}, params: [] }
+    : editingProdOrig;
+  p.slug = slug;
+  p.model = $('p-model').value.trim();
+  p.category = $('p-cat').value;
+  p.name = { zh: $('p-name-zh').value.trim(), en: $('p-name-en').value.trim() || $('p-name-zh').value.trim() };
+  p.tagline = { zh: $('p-tag-zh').value.trim(), en: $('p-tag-en').value.trim() || $('p-tag-zh').value.trim() };
+  p.image = $('p-image').value;
+  const lines = (v) => v.split('\n').map((s) => s.trim()).filter(Boolean);
+  p.features = { zh: lines($('p-feat-zh').value), en: lines($('p-feat-en').value) };
+  p.apps = { zh: $('p-apps-zh').value.trim(), en: $('p-apps-en').value.trim() || $('p-apps-zh').value.trim() };
+  // 技术参数：中文每行"名称：值"；英文每行与中文对应，留空的行沿用原英文（无原英文则用中文）
+  const zhRows = lines($('p-params-zh').value);
+  const enRows = lines($('p-params-en').value);
+  p.params = zhRows.map((line, i) => {
+    const m = line.split(/[:：]/);
+    const name = (m[0] || '').trim(), val = m.slice(1).join('：').trim();
+    const enParts = (enRows[i] || '').split(/[:：]/);
+    const enName = enRows[i] ? (enParts[0] || '').trim() : '';
+    const enVal = enRows[i] ? enParts.slice(1).join('：').trim() : '';
+    const old = editingProdOrig?.params?.[i];
+    return { n: { zh: name, en: enName || old?.n?.en || name }, v: { zh: val, en: enVal || old?.v?.en || val } };
+  });
+  if (isNew) state.products.products.unshift(p);
+  markDirty();
+  $('prodEditor').style.display = 'none';
+  renderProdList(); renderCatList();
+  return false;
+}
+function delProd(slug) {
+  const p = state.products.products.find((x) => x.slug === slug);
+  if (!p || !confirm(`确定删除产品「${p.name.zh}（${p.model}）」？保存并重新生成后，其详情页将从网站移除。`)) return;
+  state.products.products = state.products.products.filter((x) => x.slug !== slug);
+  if (editingProdSlug === slug) { $('prodEditor').style.display = 'none'; editingProdSlug = null; }
+  markDirty();
+  renderProdList(); renderCatList();
+}
+
+/* ---------- 产品分类 ---------- */
+function refreshProdCatSelect() {
+  $('p-cat').innerHTML = state.products.categories.map((c) => `<option value="${esc(c.id)}">${esc(c.name.zh)}</option>`).join('');
+}
+function renderCatList() {
+  $('catList').innerHTML = state.products.categories.map((c) => {
+    const used = state.products.products.filter((p) => p.category === c.id).length;
+    return `<div class="list-item">
+      <span class="date">${esc(c.id)}</span>
+      <span class="t">${esc(c.name.zh)} <small style="color:#999">/ ${esc(c.name.en || '')} · ${used} 个产品</small></span>
+      <span class="ops"><button class="btn danger" onclick="delCat('${esc(c.id)}')">删除</button></span>
+    </div>`;
+  }).join('');
+}
+function addCat() {
+  const id = $('c-id').value.trim();
+  const parts = $('c-names').value.split('/');
+  const zh = (parts[0] || '').trim(), en = (parts[1] || '').trim() || zh;
+  if (!/^[a-z0-9-]+$/.test(id)) { alert('分类 id 仅允许小写字母/数字/连字符'); return; }
+  if (!zh) { alert('请填写分类名称，格式：中文名 / English Name'); return; }
+  if (state.products.categories.some((c) => c.id === id)) { alert(`分类 id「${id}」已存在`); return; }
+  const preset = prodPool.find((t) => t.p.includes('/assets/ph/cat-'))?.p || '/assets/ph/cat-smart66.svg';
+  state.products.categories.push({ id, name: { zh, en }, desc: { zh: '', en: '' }, image: preset });
+  $('c-id').value = ''; $('c-names').value = '';
+  markDirty();
+  renderCatList(); refreshProdCatSelect();
+}
+function delCat(id) {
+  const used = state.products.products.filter((p) => p.category === id).length;
+  if (used) { alert(`分类「${id}」下还有 ${used} 个产品，请先把这些产品改到其他分类（或删除），再删除分类。`); return; }
+  const c = state.products.categories.find((x) => x.id === id);
+  if (!c || !confirm(`确定删除分类「${c.name.zh}」？`)) return;
+  state.products.categories = state.products.categories.filter((x) => x.id !== id);
+  markDirty();
+  renderCatList(); refreshProdCatSelect();
+}
+
+/* ---------- 询价记录：列表 / 回复 / 删除 ---------- */
+let inqCache = [];
+async function loadInquiries() {
+  inqCache = await (await api('/api/inquiries')).json();
+  $('inqList').innerHTML = inqListHtml(inqCache);
+}
+function inqListHtml(list) {
+  if (!list.length) return '<p class="empty">暂无询价记录（网站表单提交后，留言会显示在这里）</p>';
+  return `<table><tr><th>时间</th><th>姓名</th><th>电话</th><th>单位</th><th>意向产品</th><th>留言</th><th>状态</th><th>操作</th></tr>${
+    list.map((r) => {
+      const tag = r.public
+        ? '<span class="status-tag pub">已公开</span>'
+        : (r.reply ? '<span class="status-tag rep">已回复未公开</span>' : '<span class="status-tag new">未回复</span>');
+      return `<tr><td>${esc(r.receivedAt?.slice(0, 19))}</td><td>${esc(r.name)}</td><td>${esc(r.phone)}</td><td>${esc(r.company || '-')}</td><td>${esc(r.product || '-')}</td><td>${esc(r.message)}</td><td>${tag}</td><td style="white-space:nowrap;"><button class="btn" onclick="editInq('${r.id}')">回复</button> <button class="btn danger" onclick="delInq('${r.id}')">删除</button></td></tr>`;
+    }).join('')
+  }</table>`;
+}
+let editingInqId = null;
+function editInq(id) {
+  const r = inqCache.find((x) => x.id === id);
+  if (!r) return;
+  editingInqId = id;
+  $('inqEditorTitle').textContent = '回复留言 · ' + (r.name || '');
+  $('inqOrig').textContent = `【${(r.receivedAt || '').slice(0, 19).replace('T', ' ')}】${r.name || ''}${r.company ? '（' + r.company + '）' : ''}：${r.message || ''}`;
+  $('inq-reply').value = r.reply || '';
+  $('inq-public').checked = !!r.public;
+  $('inqEditor').style.display = '';
+  $('inqEditor').scrollIntoView({ behavior: 'smooth' });
+}
+function closeInqEditor() { $('inqEditor').style.display = 'none'; editingInqId = null; }
+async function saveReply(e) {
+  e.preventDefault();
+  if (!editingInqId) return false;
+  const btn = $('inq-save-btn'); btn.disabled = true;
+  try {
+    const d = await (await api('/api/inquiries/reply', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id: editingInqId, reply: $('inq-reply').value, public: $('inq-public').checked }),
+    })).json();
+    if (!d.ok) throw new Error(d.error || '保存失败');
+    $('buildStatus').textContent = d.rebuilt
+      ? '✔ 回复已保存并公开，网站留言板已自动更新。'
+      : '✔ 回复已保存（未改动公开留言板）。';
+    closeInqEditor();
+    await loadInquiries();
+  } catch (err) { alert(err.message || err); }
+  finally { btn.disabled = false; }
+  return false;
+}
+async function delInq(id) {
+  const r = inqCache.find((x) => x.id === id);
+  if (!r || !confirm(`确定删除「${r.name || ''}」的这条询价记录？删除后不可恢复。`)) return;
+  try {
+    const d = await (await api('/api/inquiries', { method: 'DELETE', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ id }) })).json();
+    if (!d.ok) throw new Error(d.error || '删除失败');
+    if (editingInqId === id) closeInqEditor();
+    if (d.rebuilt) $('buildStatus').textContent = '✔ 记录已删除，其公开留言已同步从网站撤下。';
+    await loadInquiries();
+  } catch (err) { alert(err.message || err); }
+}
+
+/* ---------- 保存并构建 ---------- */
+async function build() {
+  const btn = $('buildBtn'); btn.disabled = true;
+  $('buildStatus').textContent = '正在保存并重新生成网站，请稍候…';
+  $('log').style.display = 'block'; $('log').textContent = '';
+  try {
+    let r = await api('/api/data/news', { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(state.news) });
+    let d = await r.json();
+    if (!d.ok) throw new Error(d.error || 'news 保存失败');
+    r = await api('/api/data/products', { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(state.products) });
+    d = await r.json();
+    if (!d.ok) throw new Error(d.error || 'products 保存失败');
+    r = await api('/api/build', { method: 'POST' });
+    d = await r.json();
+    $('log').textContent = d.log || '(无输出)';
+    if (!d.ok) throw new Error('构建失败，详见日志');
+    state.dirty = false;
+    $('buildStatus').textContent = '✔ 已重新生成网站。刷新前台页面即可看到最新内容。';
+  } catch (e) {
+    $('buildStatus').textContent = '✘ 出错了：' + e.message;
+  } finally { btn.disabled = false; }
+}
+
+/* ---------- Tab 切换 ---------- */
+document.querySelectorAll('.tabs button').forEach(b => b.addEventListener('click', () => {
+  document.querySelectorAll('.tabs button').forEach(x => x.classList.remove('active'));
+  b.classList.add('active');
+  ['news', 'products', 'inquiries'].forEach(t => $('tab-' + t).style.display = t === b.dataset.tab ? '' : 'none');
+  // 底部"保存并重新生成网站"只对需要重建前台的新闻/产品改动有意义，询价页隐藏
+  $('buildBar').style.display = b.dataset.tab === 'inquiries' ? 'none' : '';
+  if (b.dataset.tab === 'inquiries') loadInquiries();
+}));
+
+/* ---------- 启动：先检查登录态 ---------- */
+(async function boot() {
+  try {
+    const s = await (await fetch('/api/session')).json();
+    if (s.authed) load();
+    else showLogin();
+  } catch { showLogin('无法连接管理服务，请确认服务已启动'); }
+})();
+</script>
+</body>
+</html>

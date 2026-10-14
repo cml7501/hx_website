@@ -1,0 +1,120 @@
+{
+  "tdk": {
+    "home": {
+      "zh": { "title": "合肥恒星科技开发有限公司 - 微生物检测设备（细菌鉴定药敏分析仪/血培养仪）", "desc": "恒星科技始建于1993年，专业研发生产细菌鉴定药敏分析仪、全自动血培养仪、微生物试剂与培养瓶，通过ISO9001/ISO13485认证，全国用户3000多家。", "kw": "细菌鉴定药敏分析仪,全自动血培养仪,微生物检测,微生物鉴定,药敏分析,HX-SMART66,HX-21,合肥恒星科技" },
+      "en": { "title": "Hefei Hengxing Technology - Microbiology Testing Equipment (ID/AST Analyzer, Blood Culture System)", "desc": "Since 1993, Hengxing has specialized in bacterial ID/AST analyzers, fully automatic blood culture systems, microbiology reagents and culture bottles, certified to ISO 9001/ISO 13485 with 3,000+ users nationwide.", "kw": "bacterial identification, antimicrobial susceptibility testing, blood culture system, microbiology analyzer, HX-SMART66, HX-21, Hengxing" }
+    },
+    "about": {
+      "zh": { "title": "关于我们 - 合肥恒星科技开发有限公司", "desc": "恒星科技简介、资质荣誉、发展历程、企业文化与售后服务承诺。始于1993年，安徽省高新技术企业，ISO9001/ISO13485双认证。", "kw": "恒星科技简介,资质荣誉,发展历程,ISO13485,高新技术企业" },
+      "en": { "title": "About Us - Hefei Hengxing Technology Development Co., Ltd.", "desc": "Company profile, honors & certifications, history, culture and after-sales commitments of Hengxing since 1993.", "kw": "about Hengxing, certifications, company history, ISO 13485" }
+    },
+    "products": {
+      "zh": { "title": "产品中心 - 细菌鉴定药敏分析仪/血培养仪/试剂 - 恒星科技", "desc": "恒星科技产品线：HX-SMART66全自动微生物鉴定药敏分析仪、HX-21系列细菌鉴定药敏分析仪、BC系列血培养仪、微生物试剂板与血培养瓶。", "kw": "产品中心,微生物鉴定药敏分析仪,血培养仪,试剂板,血培养瓶" },
+      "en": { "title": "Products - ID/AST Analyzers, Blood Culture Systems, Reagents - Hengxing", "desc": "Hengxing product lines: HX-SMART66 automatic microbial ID/AST analyzer, HX-21 series, BC series blood culture systems, reagent panels and culture bottles.", "kw": "products, ID/AST analyzer, blood culture system, reagent panel" }
+    },
+    "news": {
+      "zh": { "title": "新闻中心 - 恒星科技", "desc": "恒星科技公司动态、产品资讯与行业信息。", "kw": "恒星科技新闻,公司动态,行业资讯" },
+      "en": { "title": "News - Hengxing Technology", "desc": "Company news, product updates and industry information from Hengxing.", "kw": "Hengxing news, company news" }
+    },
+    "contact": {
+      "zh": { "title": "联系我们 - 在线询价 - 恒星科技", "desc": "恒星科技联系方式：合肥市高新区天达路71号华亿科学园F幢4楼，销售热线0551-65327222，在线询价留言表单。", "kw": "恒星科技联系方式,询价,留言,血培养仪厂家" },
+      "en": { "title": "Contact Us - Online Inquiry - Hengxing Technology", "desc": "Contact Hengxing: 4F, Building F, Huayi Science Park, No.71 Tianda Road, Hefei. Sales hotline 0551-65327222. Online inquiry form available.", "kw": "contact Hengxing, inquiry, blood culture system manufacturer" }
+    },
+    "board": {
+      "zh": { "title": "公开留言板 - 客户留言与官方回复 - 恒星科技", "desc": "恒星科技公开留言板：客户询价留言与我们的官方回复。关于微生物鉴定药敏分析仪、血培养仪等产品的咨询可在线提交。", "kw": "恒星科技留言板,客户留言,微生物设备咨询,官方回复" },
+      "en": { "title": "Message Board - Customer Inquiries & Official Replies - Hengxing Technology", "desc": "Public message board of Hengxing Technology: customer inquiries and our official replies about microbiology testing equipment.", "kw": "Hengxing message board, customer inquiries, official replies" }
+    },
+    "notFound": {
+      "zh": { "title": "页面未找到 - 恒星科技", "desc": "您访问的页面不存在。", "kw": "404" },
+      "en": { "title": "Page Not Found - Hengxing Technology", "desc": "The page you requested does not exist.", "kw": "404" }
+    }
+  },
+  "nav": [
+    { "key": "home", "label": { "zh": "首页", "en": "Home" }, "href": "/" },
+    { "key": "products", "label": { "zh": "产品中心", "en": "Products" }, "href": "/products/" },
+    { "key": "news", "label": { "zh": "新闻中心", "en": "News" }, "href": "/news/" },
+    { "key": "about", "label": { "zh": "关于我们", "en": "About Us" }, "href": "/about/" },
+    { "key": "contact", "label": { "zh": "联系我们", "en": "Contact Us" }, "href": "/contact/" }
+  ],
+  "labels": {
+    "learnMore": { "zh": "了解更多", "en": "Learn More" },
+    "viewAll": { "zh": "查看全部", "en": "View All" },
+    "viewDetail": { "zh": "查看详情", "en": "View Details" },
+    "onlineInquiry": { "zh": "在线询价", "en": "Online Inquiry" },
+    "callUs": { "zh": "致电咨询", "en": "Call Us" },
+    "productsSection": { "zh": "产品中心", "en": "Products" },
+    "productsSectionSub": { "zh": "微生物检测全线产品，为临床与公共卫生检验提供可靠工具", "en": "A full microbiology testing lineup — reliable tools for clinical and public health laboratories" },
+    "statsSection": { "zh": "数字恒星", "en": "Hengxing in Numbers" },
+    "statsSectionSub": { "zh": "三十年深耕微生物检验领域", "en": "Three decades of dedication to microbiology testing" },
+    "newsSection": { "zh": "新闻中心", "en": "News Center" },
+    "newsSectionSub": { "zh": "公司动态与行业资讯", "en": "Company news and industry updates" },
+    "aboutSection": { "zh": "关于恒星", "en": "About Hengxing" },
+    "aboutSectionSub": { "zh": "科技永恒 · 服务创星", "en": "Everlasting Technology · Star-level Service" },
+    "allProducts": { "zh": "全部产品", "en": "All Products" },
+    "catAll": { "zh": "全部", "en": "All" },
+    "featuresTitle": { "zh": "产品特点", "en": "Key Features" },
+    "paramsTitle": { "zh": "技术参数", "en": "Specifications" },
+    "appsTitle": { "zh": "适用领域", "en": "Applications" },
+    "relatedTitle": { "zh": "相关产品", "en": "Related Products" },
+    "breadcrumbHome": { "zh": "首页", "en": "Home" },
+    "companyNews": { "zh": "公司动态", "en": "Company News" },
+    "publishDate": { "zh": "发布时间", "en": "Published" },
+    "source": { "zh": "来源", "en": "Source" },
+    "prev": { "zh": "上一篇", "en": "Previous" },
+    "next": { "zh": "下一篇", "en": "Next" },
+    "backToList": { "zh": "返回列表", "en": "Back to List" },
+    "noPrev": { "zh": "没有了", "en": "None" },
+    "formName": { "zh": "您的姓名", "en": "Your Name" },
+    "formCompany": { "zh": "单位名称", "en": "Company / Institution" },
+    "formPhone": { "zh": "联系电话", "en": "Phone" },
+    "formEmail": { "zh": "电子邮箱", "en": "Email" },
+    "formProduct": { "zh": "意向产品", "en": "Product of Interest" },
+    "formMessage": { "zh": "留言内容", "en": "Message" },
+    "formSubmit": { "zh": "提交留言", "en": "Submit" },
+    "formRequired": { "zh": "必填", "en": "required" },
+    "formSuccessTitle": { "zh": "提交成功", "en": "Submitted" },
+    "formSuccessDemo": { "zh": "演示模式：表单已通过前端校验。正式上线接入后端接口后，留言将发送至公司邮箱。", "en": "Demo mode: the form passed front-end validation. Once the backend endpoint is connected at launch, messages will be delivered to the company mailbox." },
+    "formError": { "zh": "提交失败，请稍后重试或直接致电。", "en": "Submission failed. Please retry later or call us directly." },
+    "formSelectProduct": { "zh": "请选择（可选）", "en": "Select (optional)" },
+    "salesHotline": { "zh": "销售热线", "en": "Sales Hotline" },
+    "serviceHotline": { "zh": "售后热线", "en": "After-sales Hotline" },
+    "addressLabel": { "zh": "公司地址", "en": "Address" },
+    "emailLabel": { "zh": "电子邮箱", "en": "Email" },
+    "followUs": { "zh": "关注我们", "en": "Follow Us" },
+    "qrPlaceholder": { "zh": "微信扫码联系", "en": "Scan to add us on WeChat" },
+    "mapPlaceholder": { "zh": "华亿科学园F座 · 点击打开百度地图", "en": "Huayi Science Park Building F · Open in Baidu Maps" },
+    "productsNav": { "zh": "产品分类", "en": "Product Categories" },
+    "quickNav": { "zh": "快速导航", "en": "Quick Links" },
+    "aboutNavCol": { "zh": "关于恒星", "en": "About" },
+    "copyright": { "zh": "版权所有", "en": "Copyright" },
+    "cultureTitle": { "zh": "企业文化", "en": "Our Culture" },
+    "honorsTitle": { "zh": "资质荣誉", "en": "Honors & Certifications" },
+    "historyTitle": { "zh": "发展历程", "en": "Our History" },
+    "serviceTitle": { "zh": "售后服务承诺", "en": "After-sales Commitments" },
+    "jobsTitle": { "zh": "诚聘英才", "en": "Careers" },
+    "jobsIntro": { "zh": "因事设岗，因岗择人，公开招聘，择优录取。有意者请与我们联系。", "en": "Positions are set by needs and filled by open recruitment on merit. Interested candidates are welcome to contact us." },
+    "jobColumn": { "zh": "职位", "en": "Position" },
+    "deptColumn": { "zh": "部门", "en": "Dept." },
+    "countColumn": { "zh": "人数", "en": "Openings" },
+    "locationColumn": { "zh": "工作地点", "en": "Location" },
+    "reqsColumn": { "zh": "要求", "en": "Requirements" },
+    "videoTitle": { "zh": "企业宣传片", "en": "Corporate Video" },
+    "videoPlaceholder": { "zh": "早安合肥", "en": "Good Morning Hefei" },
+    "langSwitch": { "zh": "EN", "en": "中文" },
+    "oldNewsNote": { "zh": "注：2021–2025 年动态自原官网迁移存档。", "en": "Note: 2021–2025 items are archived from the previous website." },
+    "pageTitleAbout": { "zh": "关于我们", "en": "About Us" },
+    "pageTitleProducts": { "zh": "产品中心", "en": "Products" },
+    "pageTitleNews": { "zh": "新闻中心", "en": "News Center" },
+    "pageTitleContact": { "zh": "联系我们", "en": "Contact Us" },
+    "pageTitleBoard": { "zh": "公开留言板", "en": "Message Board" },
+    "boardIntro": { "zh": "以下是客户留言与我们的公开回复。想咨询产品？欢迎在联系我们页面提交询价，我们会在一个工作日内与您联系。", "en": "Public messages from our customers together with our official replies. To ask about our products, please submit the inquiry form on the Contact page — we reply within one business day." },
+    "boardEmpty": { "zh": "暂无公开留言。", "en": "No public messages yet." },
+    "boardReplyLabel": { "zh": "官方回复", "en": "Our Reply" },
+    "boardCta": { "zh": "我要留言 / 在线询价", "en": "Leave a Message / Online Inquiry" },
+    "boardNote": { "zh": "提交即表示同意：留言经我们回复后可能公开展示在留言板（仅公开姓名与留言内容，电话、邮箱等单位联系方式不会公开）。", "en": "By submitting, you agree that your message (name and text only — never your phone, email or other contact details) may be published on our message board after we reply." },
+    "contactBoardLink": { "zh": "查看公开留言板 →", "en": "View the public message board →" },
+    "inquiryNow": { "zh": "立即询价", "en": "Inquire Now" },
+    "certBadge": { "zh": "ISO9001 / ISO13485 认证企业", "en": "ISO 9001 / ISO 13485 Certified" },
+    "footerIntro": { "zh": "专业从事医疗检验产品（微生物检测）研发、生产、销售的高新技术企业。", "en": "A high-tech enterprise specializing in the R&D, manufacturing and sales of medical testing products (microbiology)." }
+  }
+}

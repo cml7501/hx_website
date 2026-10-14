@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400" role="img" aria-label="微生物检验 占位图">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#3B7BD4"/><stop offset=".55" stop-color="#2F6FC4"/><stop offset="1" stop-color="#6FA6E8"/></linearGradient></defs>
+<rect width="640" height="400" fill="url(#g)"/>
+<g stroke="#FFFFFF" opacity=".05" stroke-width="1"><line x1="0" y1="0" x2="640" y2="0"/><line x1="0" y1="48" x2="640" y2="48"/><line x1="0" y1="96" x2="640" y2="96"/><line x1="0" y1="144" x2="640" y2="144"/><line x1="0" y1="192" x2="640" y2="192"/><line x1="0" y1="240" x2="640" y2="240"/><line x1="0" y1="288" x2="640" y2="288"/><line x1="0" y1="336" x2="640" y2="336"/><line x1="0" y1="384" x2="640" y2="384"/></g>
+<g fill="none" stroke="#CFE3FA" stroke-width="7.4399999999999995" opacity=".9">
+    <circle cx="320" cy="136.16" r="84.32000000000001"/><circle cx="320" cy="136.16" r="49.6"/>
+    <circle cx="300.15999999999997" cy="121.28" r="7.4399999999999995" fill="#CFE3FA"/><circle cx="339.84000000000003" cy="151.04" r="8.680000000000001" fill="#CFE3FA"/>
+  </g>
+<text x="320" y="312" text-anchor="middle" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="34" font-weight="700" fill="#FFFFFF">微生物检验</text>
+
+<text x="630" y="390" text-anchor="end" font-family="Arial, sans-serif" font-size="13.600000000000001" fill="#CFE3FA" opacity=".55">占位图 · 待替换素材</text>
+</svg>

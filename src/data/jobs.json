@@ -1,0 +1,34 @@
+{
+  "contact": { "zh": "联系人：徐小姐（联系方式请致电公司总机）", "en": "Contact: Ms. Xu (please call the company for details)" },
+  "note": { "zh": "以下职位信息沿用旧站发布内容，可能已过期，应聘前请与公司核实。【待核实】", "en": "The positions below were migrated from the old site and may be outdated; please verify with the company before applying. [To be verified]" },
+  "positions": [
+    {
+      "title": { "zh": "生产人员", "en": "Production Staff" },
+      "dept": { "zh": "生产部", "en": "Production Dept." },
+      "count": { "zh": "5 人", "en": "5" },
+      "location": { "zh": "合肥", "en": "Hefei" },
+      "reqs": { "zh": "车间生产岗位，30 岁以下，男性能长期工作者优先。", "en": "Workshop production role; male candidates under 30 able to work long-term preferred." }
+    },
+    {
+      "title": { "zh": "售后工程师", "en": "After-sales Engineer" },
+      "dept": { "zh": "售后部", "en": "After-sales Dept." },
+      "count": { "zh": "5 人", "en": "5" },
+      "location": { "zh": "合肥（常出差）", "en": "Hefei (frequent travel)" },
+      "reqs": { "zh": "临床检验 / 微生物相关专业大专以上，能经常出差。", "en": "College degree or above in clinical laboratory or microbiology-related majors; able to travel frequently." }
+    },
+    {
+      "title": { "zh": "技术工程师", "en": "R&D Engineer" },
+      "dept": { "zh": "研发部", "en": "R&D Dept." },
+      "count": { "zh": "3 人", "en": "3" },
+      "location": { "zh": "合肥", "en": "Hefei" },
+      "reqs": { "zh": "临床检验 / 微生物专业本科以上，成绩优异或经验丰富者优先。", "en": "Bachelor's degree or above in clinical laboratory or microbiology; excellent academic record or rich experience preferred." }
+    },
+    {
+      "title": { "zh": "销售人员", "en": "Sales Representative" },
+      "dept": { "zh": "销售部", "en": "Sales Dept." },
+      "count": { "zh": "6 人", "en": "6" },
+      "location": { "zh": "全国各地（长期驻外省）", "en": "Nationwide (long-term stationed in other provinces)" },
+      "reqs": { "zh": "学历不限，有经验者优先，能长期驻外省工作。", "en": "No degree requirement; experienced candidates preferred; able to work long-term in other provinces." }
+    }
+  ]
+}

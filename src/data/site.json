@@ -1,0 +1,81 @@
+{
+  "company": {
+    "name": { "zh": "合肥恒星科技开发有限公司", "en": "Hefei Hengxing Technology Development Co., Ltd." },
+    "short": { "zh": "恒星科技", "en": "HENGXING TECH" },
+    "founded": 1993,
+    "slogan": { "zh": "为微生物检验精准服务", "en": "Precision Service for Microbiology Testing" },
+    "subslogan": { "zh": "科技永恒 · 服务创星", "en": "Everlasting Technology · Star-level Service" },
+    "address": { "zh": "合肥市高新区天达路71号华亿科学园F幢4楼", "en": "4F, Building F, Huayi Science Park, No.71 Tianda Road, High-Tech Zone, Hefei, Anhui, China" },
+    "salesPhones": ["0551-65327222", "13905511053"],
+    "servicePhones": ["0551-65321467", "13856016639"],
+    "email": "2967069907@qq.com",
+    "website": "http://www.hfhxkj.com",
+    "icp": "皖ICP备11018034号-2",
+    "icpUrl": "https://beian.miit.gov.cn/"
+  },
+  "intro": {
+    "short": {
+      "zh": "合肥恒星科技开发有限公司始建于 1993 年，是专业从事医疗检验产品（微生物检测：细菌鉴定药敏分析仪、血培养仪等）研发、生产、销售的高新技术企业，通过 ISO9001 / ISO13485 质量体系认证，产品行销全国三十多个省市自治区，全国用户 3000 多家。",
+      "en": "Founded in 1993, Hefei Hengxing Technology Development Co., Ltd. is a high-tech enterprise dedicated to the R&D, manufacturing and sales of medical testing products (microbiology: bacterial ID/AST analyzers, blood culture systems, etc.). Certified to ISO 9001 / ISO 13485, our products serve more than 3,000 users across over 30 provinces of China."
+    },
+    "long": {
+      "zh": [
+        "合肥恒星科技开发有限公司始建于 1993 年，是一家集产品研发、生产、销售、服务为一体的综合性医疗设备供应商，公司总部设在中国四大科教基地之一的合肥。公司生产的产品主要有：细菌鉴定药敏分析仪、全自动血培养仪、电解质分析仪、配套试剂和耗材。产品行销全国三十多个省市自治区，并多次在国内大型招标活动中中标。仪器适用于医院、疾控中心、动植物检疫、水产养殖、学校、科研机构等，全国用户 3000 多家，市场占有率 23% 以上。",
+        "公司生产的细菌鉴定药敏分析仪及配套试剂、全自动血培养仪及其配套培养瓶是与中国科大、安徽省立医院、安徽医大附一院等合作开发的项目；是安徽省“十五”重点科技攻关项目，荣获安徽省科技成果奖，该产品的总体性能优良，其中抗生素药敏试验专家系统填补了国内空白。全自动血培养仪有多种型号，满足各不同用量用户的需要。",
+        "经营理念：科技永恒，服务创星。合肥恒星科技开发有限公司愿以促进人类医疗卫生事业的发展为己任，携手各界同仁共同铸造民族品牌！"
+      ],
+      "en": [
+        "Founded in 1993 and headquartered in Hefei — one of China's four major science and education bases — Hefei Hengxing Technology Development Co., Ltd. is a comprehensive medical equipment supplier integrating R&D, manufacturing, sales and service. Our main products include bacterial identification & antimicrobial susceptibility testing (ID/AST) analyzers, fully automatic blood culture systems, electrolyte analyzers, and matching reagents and consumables. Our products are sold to more than 30 provinces, autonomous regions and municipalities across China and have won numerous large-scale national tenders. Serving hospitals, CDC centers, animal & plant quarantine, aquaculture, schools and research institutes, we have over 3,000 users nationwide with a market share above 23%.",
+        "Our bacterial ID/AST analyzer and matching reagents, together with the fully automatic blood culture system and its culture bottles, were jointly developed with the University of Science and Technology of China, Anhui Provincial Hospital and the First Affiliated Hospital of Anhui Medical University. Listed as a key S&T project of Anhui's 10th Five-Year Plan and winner of the Anhui Provincial Science & Technology Achievement Award, the product delivers outstanding overall performance — its antimicrobial susceptibility expert system filled a domestic gap. The blood culture system is available in multiple models to meet different throughput needs.",
+        "Philosophy: Everlasting Technology, Star-level Service. Hefei Hengxing takes promoting the development of human healthcare as its own responsibility, working hand in hand with partners to build a national brand."
+      ]
+    }
+  },
+  "stats": [
+    { "value": "1993", "label": { "zh": "公司创立于", "en": "Founded in" } },
+    { "value": "3000+", "label": { "zh": "全国用户", "en": "Users Nationwide" } },
+    { "value": "23%", "label": { "zh": "市场占有率", "en": "Market Share" } },
+    { "value": "2000+", "label": { "zh": "菌种数据库", "en": "Species Database" } }
+  ],
+  "timeline": [
+    {
+      "year": "1993",
+      "title": { "zh": "公司成立", "en": "Company Founded" },
+      "desc": { "zh": "公司始建 于合肥，开始深耕医疗检验产品领域。", "en": "The company was founded in Hefei, entering the medical testing equipment field." }
+    },
+    {
+      "year": "2001–2005",
+      "title": { "zh": "省“十五”重点科技攻关项目", "en": "Provincial “10th Five-Year” Key S&T Project" },
+      "desc": { "zh": "与中国科大、安徽省立医院、安医大附一院合作开发细菌鉴定药敏分析仪及配套试剂、全自动血培养仪，荣获安徽省科技成果奖。", "en": "Jointly developed the bacterial ID/AST analyzer & reagents and the automatic blood culture system with USTC, Anhui Provincial Hospital and the First Affiliated Hospital of AMU; won the Anhui Provincial S&T Achievement Award." }
+    },
+    {
+      "year": "2011",
+      "title": { "zh": "ISO 双体系认证", "en": "ISO Dual Certification" },
+      "desc": { "zh": "通过 ISO9001 质量管理体系与 ISO13485 医疗器械质量管理体系认证。", "en": "Certified to ISO 9001 quality management and ISO 13485 medical device quality management systems." }
+    },
+    {
+      "year": "2015",
+      "title": { "zh": "市场覆盖全国", "en": "Nationwide Coverage" },
+      "desc": { "zh": "产品行销全国三十多个省市自治区，多次在国内大型招标中中标，全国用户 3000 多家。", "en": "Products sold across 30+ provinces with repeated national tender wins and 3,000+ users nationwide." }
+    },
+    {
+      "year": "2024",
+      "title": { "zh": "HX-SMART66 上市", "en": "HX-SMART66 Launched" },
+      "desc": { "zh": "新一代全自动微生物鉴定药敏分析仪推出，自动化与鉴定能力全面升级。", "en": "The new-generation fully automatic microbial ID/AST analyzer was released with upgraded automation and identification capability." }
+    }
+  ],
+  "culture": [
+    { "k": { "zh": "经营理念", "en": "Philosophy" }, "v": { "zh": "科技永恒 · 服务创星", "en": "Everlasting Technology · Star-level Service" } },
+    { "k": { "zh": "经营宗旨", "en": "Mission" }, "v": { "zh": "树民族品牌 · 为社会服务", "en": "Build a National Brand · Serve the Society" } },
+    { "k": { "zh": "质量方针", "en": "Quality Policy" }, "v": { "zh": "追求卓越品质，与顾客共同创造价值", "en": "Pursue excellence in quality and create value together with customers" } }
+  ],
+  "service": [
+    { "zh": "免费技术咨询与实地考察", "en": "Free technical consulting and on-site visits" },
+    { "zh": "免费运输、安装、调试与操作培训", "en": "Free delivery, installation, commissioning and operation training" },
+    { "zh": "整机包修 12 个月以上，提供终身维护", "en": "Whole-machine warranty of 12+ months with lifetime maintenance" },
+    { "zh": "长期稳定的零配件供应", "en": "Long-term and stable spare parts supply" },
+    { "zh": "分析软件免费升级", "en": "Free analysis software upgrades" },
+    { "zh": "试剂板终身供应并免费送货", "en": "Lifetime reagent panel supply with free delivery" },
+    { "zh": "协助用户开展宣传推广合作", "en": "Marketing and promotion cooperation with users" }
+  ]
+}

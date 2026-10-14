@@ -1,0 +1,906 @@
+{
+  "categories": [
+    {
+      "id": "smart66",
+      "name": {
+        "zh": "全自动微生物鉴定药敏分析仪",
+        "en": "Automatic Microbial ID/AST Analyzer"
+      },
+      "desc": {
+        "zh": "上卡、孵育、判读到废卡全流程自动化的新一代鉴定药敏平台。",
+        "en": "A new-generation ID/AST platform automating loading, incubation, reading and discarding."
+      },
+      "image": "/assets/img/products/hx-smart66.jpg"
+    },
+    {
+      "id": "hx21",
+      "name": {
+        "zh": "细菌鉴定药敏分析仪",
+        "en": "Bacterial ID/AST Analyzer"
+      },
+      "desc": {
+        "zh": "数值分类原理结合激光与比色比浊法，按应用领域提供多种配置。",
+        "en": "Numerical taxonomy with laser & colorimetric/turbidimetric methods, multiple application-specific configurations."
+      },
+      "image": "/assets/img/products/hx-21.jpg"
+    },
+    {
+      "id": "bc",
+      "name": {
+        "zh": "血培养仪",
+        "en": "Blood Culture System"
+      },
+      "desc": {
+        "zh": "非侵入式检测原理，多容量型号，与 LIS/HIS/WHONET 无缝联机。",
+        "en": "Non-invasive detection in multiple capacities, seamlessly connected to LIS/HIS/WHONET."
+      },
+      "image": "/assets/img/products/bc-analyzer.jpg"
+    },
+    {
+      "id": "reagent",
+      "name": {
+        "zh": "微生物试剂系列",
+        "en": "Microbiology Reagents"
+      },
+      "desc": {
+        "zh": "96 孔鉴定药敏一体化试剂板，18 种菌种板并支持定制。",
+        "en": "96-well integrated ID/AST reagent panels with 18 species boards and customization."
+      },
+      "image": "/assets/img/products/reagent-panel.jpg"
+    },
+    {
+      "id": "bottle",
+      "name": {
+        "zh": "血培养瓶",
+        "en": "Blood Culture Bottles"
+      },
+      "desc": {
+        "zh": "需氧、厌氧、儿童及抗生素中和全系列，开放兼容多品牌仪器。",
+        "en": "Full range of aerobic, anaerobic, pediatric and antibiotic-neutralizing bottles, openly compatible with other brands."
+      },
+      "image": "/assets/img/products/bc-bottle.jpg"
+    }
+  ],
+  "products": [
+    {
+      "slug": "hx-smart66",
+      "category": "smart66",
+      "model": "HX-SMART66",
+      "name": {
+        "zh": "全自动微生物鉴定药敏分析仪",
+        "en": "Fully Automatic Microbial ID/AST Analyzer"
+      },
+      "tagline": {
+        "zh": "自动化程度更高的新一代鉴定药敏一体化平台",
+        "en": "A new-generation integrated ID/AST platform with a higher level of automation"
+      },
+      "image": "/assets/img/products/hx-smart66.jpg",
+      "features": {
+        "zh": [
+          "全自动上卡、孵育、判读、废卡，流程无需人工干预",
+          "≥66 个测试位，可平滑升级至 96 测试位",
+          "600+ 菌种鉴定数据库，覆盖临床常见与少见菌",
+          "≥200 种抗生素 MIC 药敏分析，遵循 CLSI 标准",
+          "专家系统辅助判读，结果报告规范可靠"
+        ],
+        "en": [
+          "Fully automatic card loading, incubation, reading and discarding without manual intervention",
+          "≥66 test slots, smoothly upgradeable to 96",
+          "Database of 600+ species covering common and rare clinical isolates",
+          "MIC susceptibility testing for ≥200 antibiotics per CLSI standards",
+          "Expert system assists interpretation for standardized, reliable reports"
+        ]
+      },
+      "params": [
+        {
+          "n": {
+            "zh": "测试位",
+            "en": "Test slots"
+          },
+          "v": {
+            "zh": "≥66（可升级 96）",
+            "en": "≥66 (upgradeable to 96)"
+          }
+        },
+        {
+          "n": {
+            "zh": "鉴定菌种",
+            "en": "Identifiable species"
+          },
+          "v": {
+            "zh": "600+",
+            "en": "600+"
+          }
+        },
+        {
+          "n": {
+            "zh": "药敏抗生素",
+            "en": "AST antibiotics"
+          },
+          "v": {
+            "zh": "≥200 种（MIC）",
+            "en": "≥200 (MIC)"
+          }
+        },
+        {
+          "n": {
+            "zh": "判读方式",
+            "en": "Reading"
+          },
+          "v": {
+            "zh": "全自动",
+            "en": "Fully automatic"
+          }
+        },
+        {
+          "n": {
+            "zh": "执行标准",
+            "en": "Standard"
+          },
+          "v": {
+            "zh": "CLSI",
+            "en": "CLSI"
+          }
+        }
+      ],
+      "apps": {
+        "zh": "医院、学校、疾控中心等",
+        "en": "Hospitals, universities, CDC centers, etc."
+      }
+    },
+    {
+      "slug": "hx-21",
+      "category": "hx21",
+      "model": "HX-21",
+      "name": {
+        "zh": "细菌鉴定药敏分析仪",
+        "en": "Bacterial ID/AST Analyzer"
+      },
+      "tagline": {
+        "zh": "医疗与教学场景的主力机型",
+        "en": "The workhorse model for clinical and teaching scenarios"
+      },
+      "image": "/assets/img/products/hx-21.jpg",
+      "features": {
+        "zh": [
+          "数值分类原理，结合激光、比色比浊法检测",
+          "菌种库 2000+ 种，覆盖临床与科研常见菌",
+          "常用药 200 余种，专家系统可检测 MRS / ESBLs / HLAR",
+          "检测速度 >80 份标本/小时，鉴定准确性 >97%",
+          "96 孔试剂板，配套试剂供应稳定"
+        ],
+        "en": [
+          "Numerical taxonomy combined with laser and colorimetric/turbidimetric detection",
+          "Species library of 2,000+ covering common clinical and research isolates",
+          "200+ common drugs; expert system detects MRS / ESBLs / HLAR",
+          "Throughput >80 specimens/hour with identification accuracy >97%",
+          "96-well reagent panels with stable supply"
+        ]
+      },
+      "params": [
+        {
+          "n": {
+            "zh": "检测原理",
+            "en": "Principle"
+          },
+          "v": {
+            "zh": "数值分类 + 激光 + 比色比浊法",
+            "en": "Numerical taxonomy + laser + colorimetric/turbidimetric"
+          }
+        },
+        {
+          "n": {
+            "zh": "菌种库",
+            "en": "Species library"
+          },
+          "v": {
+            "zh": "2000+",
+            "en": "2,000+"
+          }
+        },
+        {
+          "n": {
+            "zh": "常用药",
+            "en": "Common drugs"
+          },
+          "v": {
+            "zh": "200+",
+            "en": "200+"
+          }
+        },
+        {
+          "n": {
+            "zh": "专家系统",
+            "en": "Expert system"
+          },
+          "v": {
+            "zh": "MRS / ESBLs / HLAR",
+            "en": "MRS / ESBLs / HLAR"
+          }
+        },
+        {
+          "n": {
+            "zh": "检测速度",
+            "en": "Throughput"
+          },
+          "v": {
+            "zh": ">80 份标本/小时",
+            "en": ">80 specimens/hour"
+          }
+        },
+        {
+          "n": {
+            "zh": "准确性",
+            "en": "Accuracy"
+          },
+          "v": {
+            "zh": ">97%",
+            "en": ">97%"
+          }
+        },
+        {
+          "n": {
+            "zh": "试剂板",
+            "en": "Reagent panel"
+          },
+          "v": {
+            "zh": "96 孔",
+            "en": "96-well"
+          }
+        }
+      ],
+      "apps": {
+        "zh": "医疗、学校等",
+        "en": "Healthcare, universities, etc."
+      }
+    },
+    {
+      "slug": "hx-21a",
+      "category": "hx21",
+      "model": "HX-21A",
+      "name": {
+        "zh": "细菌鉴定药敏分析仪（应用扩展型）",
+        "en": "Bacterial ID/AST Analyzer (Extended Applications)"
+      },
+      "tagline": {
+        "zh": "面向医院、农牧、食品药品、疾控、学校、环保多领域",
+        "en": "For hospitals, agriculture & husbandry, food & drug, CDC, universities and environmental protection"
+      },
+      "image": "/assets/img/products/hx-21a.jpg",
+      "features": {
+        "zh": [
+          "继承 HX-21 全部核心检测能力",
+          "预置农牧、食药、环保等领域菌种与药谱",
+          "一机多用，适合第三方检测与基层机构",
+          "专家系统耐药机制检测",
+          "96 孔试剂板，多种菌种板可选"
+        ],
+        "en": [
+          "Inherits all core capabilities of HX-21",
+          "Preset species and drug panels for agriculture, food and environmental fields",
+          "One system for multiple uses, ideal for third-party testing and primary-level institutes",
+          "Expert system for resistance mechanism detection",
+          "96-well panels with multiple species board options"
+        ]
+      },
+      "params": [
+        {
+          "n": {
+            "zh": "检测原理",
+            "en": "Principle"
+          },
+          "v": {
+            "zh": "数值分类 + 激光 + 比色比浊法",
+            "en": "Numerical taxonomy + laser + colorimetric/turbidimetric"
+          }
+        },
+        {
+          "n": {
+            "zh": "菌种库",
+            "en": "Species library"
+          },
+          "v": {
+            "zh": "2000+",
+            "en": "2,000+"
+          }
+        },
+        {
+          "n": {
+            "zh": "检测速度",
+            "en": "Throughput"
+          },
+          "v": {
+            "zh": ">80 份标本/小时",
+            "en": ">80 specimens/hour"
+          }
+        },
+        {
+          "n": {
+            "zh": "准确性",
+            "en": "Accuracy"
+          },
+          "v": {
+            "zh": ">97%",
+            "en": ">97%"
+          }
+        },
+        {
+          "n": {
+            "zh": "试剂板",
+            "en": "Reagent panel"
+          },
+          "v": {
+            "zh": "96 孔",
+            "en": "96-well"
+          }
+        }
+      ],
+      "apps": {
+        "zh": "医院、农牧、食品药品、疾控、学校、环保等",
+        "en": "Hospitals, agriculture & husbandry, food & drug, CDC, universities, environmental protection, etc."
+      }
+    },
+    {
+      "slug": "hx-21b",
+      "category": "hx21",
+      "model": "HX-21B",
+      "name": {
+        "zh": "细菌鉴定药敏分析仪（畜牧环保型）",
+        "en": "Bacterial ID/AST Analyzer (Livestock & Environment)"
+      },
+      "tagline": {
+        "zh": "医院、农畜牧、学校、食品药品、环保、疾控通用",
+        "en": "For hospitals, livestock farming, universities, food & drug, environment and CDC"
+      },
+      "image": "/assets/img/products/hx-21b.jpg",
+      "features": {
+        "zh": [
+          "面向农畜牧检疫与环境监测优化的配置",
+          "覆盖动物源病原与水源、环境常见菌",
+          "耐药监测数据可对接 WHONET",
+          "操作简便，适合基层检验人员",
+          "96 孔试剂板，定制板型支持"
+        ],
+        "en": [
+          "Configuration optimized for livestock quarantine and environmental monitoring",
+          "Covers animal-derived pathogens and common water/environmental bacteria",
+          "Resistance surveillance data exportable to WHONET",
+          "Easy operation for primary-level laboratory staff",
+          "96-well panels with customized board support"
+        ]
+      },
+      "params": [
+        {
+          "n": {
+            "zh": "检测原理",
+            "en": "Principle"
+          },
+          "v": {
+            "zh": "数值分类 + 激光 + 比色比浊法",
+            "en": "Numerical taxonomy + laser + colorimetric/turbidimetric"
+          }
+        },
+        {
+          "n": {
+            "zh": "菌种库",
+            "en": "Species library"
+          },
+          "v": {
+            "zh": "2000+",
+            "en": "2,000+"
+          }
+        },
+        {
+          "n": {
+            "zh": "检测速度",
+            "en": "Throughput"
+          },
+          "v": {
+            "zh": ">80 份标本/小时",
+            "en": ">80 specimens/hour"
+          }
+        },
+        {
+          "n": {
+            "zh": "准确性",
+            "en": "Accuracy"
+          },
+          "v": {
+            "zh": ">97%",
+            "en": ">97%"
+          }
+        },
+        {
+          "n": {
+            "zh": "试剂板",
+            "en": "Reagent panel"
+          },
+          "v": {
+            "zh": "96 孔",
+            "en": "96-well"
+          }
+        }
+      ],
+      "apps": {
+        "zh": "医院、农畜牧、学校、食品药品、环保、疾控等",
+        "en": "Hospitals, livestock, universities, food & drug, environment, CDC, etc."
+      }
+    },
+    {
+      "slug": "hx-21-agri",
+      "category": "hx21",
+      "model": "HX-21",
+      "name": {
+        "zh": "细菌鉴定药敏分析仪（农·畜·牧·水产·学校用参数）",
+        "en": "Bacterial ID/AST Analyzer (Agriculture / Livestock / Aquaculture / Campus Configuration)"
+      },
+      "tagline": {
+        "zh": "面向种植、养殖、水产与教学实验的专用参数配置",
+        "en": "Dedicated parameter configuration for farming, breeding, aquaculture and teaching labs"
+      },
+      "image": "/assets/img/products/hx-21-agri.jpg",
+      "features": {
+        "zh": [
+          "针对动植物病原与水产病害菌优化菌种库",
+          "教学实验友好，结果直观易判读",
+          "支持兽用药敏谱",
+          "一机覆盖农、畜、牧、水产多场景",
+          "96 孔试剂板"
+        ],
+        "en": [
+          "Species library optimized for plant/animal pathogens and aquatic diseases",
+          "Teaching-friendly with intuitive results",
+          "Veterinary susceptibility panels supported",
+          "One system for agriculture, livestock and aquaculture scenarios",
+          "96-well reagent panels"
+        ]
+      },
+      "params": [
+        {
+          "n": {
+            "zh": "适用对象",
+            "en": "Target"
+          },
+          "v": {
+            "zh": "农、畜、牧、水产、学校",
+            "en": "Agriculture, livestock, aquaculture, universities"
+          }
+        },
+        {
+          "n": {
+            "zh": "菌种库",
+            "en": "Species library"
+          },
+          "v": {
+            "zh": "2000+（含动植物病原）",
+            "en": "2,000+ (incl. plant/animal pathogens)"
+          }
+        },
+        {
+          "n": {
+            "zh": "药敏谱",
+            "en": "AST panels"
+          },
+          "v": {
+            "zh": "含兽用药物",
+            "en": "Incl. veterinary drugs"
+          }
+        },
+        {
+          "n": {
+            "zh": "试剂板",
+            "en": "Reagent panel"
+          },
+          "v": {
+            "zh": "96 孔",
+            "en": "96-well"
+          }
+        }
+      ],
+      "apps": {
+        "zh": "农业、畜牧、水产养殖、学校",
+        "en": "Agriculture, animal husbandry, aquaculture, universities"
+      }
+    },
+    {
+      "slug": "hx-21-cdc",
+      "category": "hx21",
+      "model": "HX-21",
+      "name": {
+        "zh": "细菌鉴定药敏分析仪（疾控·质检·食药·学校用参数）",
+        "en": "Bacterial ID/AST Analyzer (CDC / QC / Food & Drug / Campus Configuration)"
+      },
+      "tagline": {
+        "zh": "面向疾控监测、质量检验与食品药品安全的参数配置",
+        "en": "Configuration for CDC surveillance, quality inspection and food & drug safety"
+      },
+      "image": "/assets/img/products/hx-21-cdc.jpg",
+      "features": {
+        "zh": [
+          "预置疾控监测常见病原菌谱",
+          "食品药品质检场景专用试剂板",
+          "耐药监测数据支持 WHONET 导入",
+          "满足学校微生物学教学实验需求",
+          "96 孔试剂板"
+        ],
+        "en": [
+          "Preset pathogen panels for CDC surveillance",
+          "Dedicated panels for food & drug quality inspection",
+          "Resistance data exportable to WHONET",
+          "Meets university microbiology teaching needs",
+          "96-well reagent panels"
+        ]
+      },
+      "params": [
+        {
+          "n": {
+            "zh": "适用对象",
+            "en": "Target"
+          },
+          "v": {
+            "zh": "疾控、质检、食品药品、学校",
+            "en": "CDC, quality inspection, food & drug, universities"
+          }
+        },
+        {
+          "n": {
+            "zh": "菌种库",
+            "en": "Species library"
+          },
+          "v": {
+            "zh": "2000+",
+            "en": "2,000+"
+          }
+        },
+        {
+          "n": {
+            "zh": "数据接口",
+            "en": "Data interface"
+          },
+          "v": {
+            "zh": "WHONET",
+            "en": "WHONET"
+          }
+        },
+        {
+          "n": {
+            "zh": "试剂板",
+            "en": "Reagent panel"
+          },
+          "v": {
+            "zh": "96 孔",
+            "en": "96-well"
+          }
+        }
+      ],
+      "apps": {
+        "zh": "疾控中心、质检机构、食品药品检测、学校",
+        "en": "CDC centers, quality inspection, food & drug testing, universities"
+      }
+    },
+    {
+      "slug": "hx-21-env",
+      "category": "hx21",
+      "model": "HX-21",
+      "name": {
+        "zh": "细菌鉴定药敏分析仪（环境检测·水源·学校用参数）",
+        "en": "Bacterial ID/AST Analyzer (Environmental / Water Source / Campus Configuration)"
+      },
+      "tagline": {
+        "zh": "面向环境监测、水源卫生检验的参数配置",
+        "en": "Configuration for environmental monitoring and water hygiene testing"
+      },
+      "image": "/assets/img/products/hx-21-env.jpg",
+      "features": {
+        "zh": [
+          "覆盖水源、土壤、空气等环境样本常见菌",
+          "适用于卫生防疫与环卫检验",
+          "支持教学微生物实验",
+          "检测报告规范，便于存档比对",
+          "96 孔试剂板"
+        ],
+        "en": [
+          "Covers common bacteria from water, soil and air samples",
+          "Suitable for health & epidemic prevention and sanitation inspection",
+          "Supports teaching microbiology experiments",
+          "Standardized reports for archiving and comparison",
+          "96-well reagent panels"
+        ]
+      },
+      "params": [
+        {
+          "n": {
+            "zh": "适用对象",
+            "en": "Target"
+          },
+          "v": {
+            "zh": "环境检测、水源、学校",
+            "en": "Environmental testing, water sources, universities"
+          }
+        },
+        {
+          "n": {
+            "zh": "菌种库",
+            "en": "Species library"
+          },
+          "v": {
+            "zh": "2000+（含环境菌）",
+            "en": "2,000+ (incl. environmental species)"
+          }
+        },
+        {
+          "n": {
+            "zh": "样本类型",
+            "en": "Sample types"
+          },
+          "v": {
+            "zh": "水、土壤、空气等",
+            "en": "Water, soil, air, etc."
+          }
+        },
+        {
+          "n": {
+            "zh": "试剂板",
+            "en": "Reagent panel"
+          },
+          "v": {
+            "zh": "96 孔",
+            "en": "96-well"
+          }
+        }
+      ],
+      "apps": {
+        "zh": "环境检测、水源卫生、学校",
+        "en": "Environmental testing, water hygiene, universities"
+      }
+    },
+    {
+      "slug": "bc-analyzer",
+      "category": "bc",
+      "model": "BC-60 / BC-120",
+      "name": {
+        "zh": "全自动血液细菌培养仪",
+        "en": "Fully Automatic Blood Culture System"
+      },
+      "tagline": {
+        "zh": "非侵入式检测，多容量型号满足不同用量需求",
+        "en": "Non-invasive detection with multiple capacity models for different workloads"
+      },
+      "image": "/assets/img/products/bc-analyzer.jpg",
+      "features": {
+        "zh": [
+          "非侵入式二氧化碳感应（荧光/比色法），不损伤培养瓶",
+          "24 小时阳性检出率 >95%，48 小时 >98%",
+          "准确性 >99%，条形码识别任意瓶位",
+          "断电保护与备用电源，保障培养连续性",
+          "WINDOWS 中文操作软件，可与 LIS / HIS / WHONET 联网"
+        ],
+        "en": [
+          "Non-invasive CO₂ sensing (fluorescence/colorimetry) without damaging bottles",
+          "Positive detection rate >95% within 24h and >98% within 48h",
+          "Accuracy >99% with barcode identification of any slot",
+          "Power-failure protection and backup supply for culture continuity",
+          "Windows-based Chinese software connectable to LIS / HIS / WHONET"
+        ]
+      },
+      "params": [
+        {
+          "n": {
+            "zh": "型号",
+            "en": "Models"
+          },
+          "v": {
+            "zh": "BC-60 型、BC-120 型",
+            "en": "BC-60, BC-120"
+          }
+        },
+        {
+          "n": {
+            "zh": "培养容量",
+            "en": "Capacity"
+          },
+          "v": {
+            "zh": "60 / 120 / 180 瓶",
+            "en": "60 / 120 / 180 bottles"
+          }
+        },
+        {
+          "n": {
+            "zh": "检测原理",
+            "en": "Principle"
+          },
+          "v": {
+            "zh": "非侵入式 CO₂ 感应（荧光/比色法）",
+            "en": "Non-invasive CO₂ sensing (fluorescence/colorimetry)"
+          }
+        },
+        {
+          "n": {
+            "zh": "24h 检出率",
+            "en": "24h detection"
+          },
+          "v": {
+            "zh": ">95%",
+            "en": ">95%"
+          }
+        },
+        {
+          "n": {
+            "zh": "48h 检出率",
+            "en": "48h detection"
+          },
+          "v": {
+            "zh": ">98%",
+            "en": ">98%"
+          }
+        },
+        {
+          "n": {
+            "zh": "准确性",
+            "en": "Accuracy"
+          },
+          "v": {
+            "zh": ">99%",
+            "en": ">99%"
+          }
+        },
+        {
+          "n": {
+            "zh": "软件",
+            "en": "Software"
+          },
+          "v": {
+            "zh": "WINDOWS 中文软件，支持 LIS/HIS/WHONET",
+            "en": "Windows-based Chinese software with LIS/HIS/WHONET support"
+          }
+        }
+      ],
+      "apps": {
+        "zh": "医院检验���、疾控中心、血站等",
+        "en": "Hospital laboratories, CDC centers, blood banks, etc."
+      }
+    },
+    {
+      "slug": "reagent-panel",
+      "category": "reagent",
+      "model": "HX-21 试剂板",
+      "name": {
+        "zh": "微生物鉴定药敏试剂板",
+        "en": "Microbial ID/AST Reagent Panel"
+      },
+      "tagline": {
+        "zh": "96 孔鉴定药敏一体化，18 种菌种板并支持定制",
+        "en": "96-well integrated ID/AST panel with 18 species boards and customization"
+      },
+      "image": "/assets/img/products/reagent-panel.jpg",
+      "features": {
+        "zh": [
+          "96 孔微孔板，鉴定与药敏一体化设计",
+          "一体板 / 分体板 / 定制板多种规格",
+          "18 种菌种板，覆盖临床常见菌属",
+          "2–8℃ 保存，有效期 12 个月",
+          "与 HX 系列分析仪配套使用"
+        ],
+        "en": [
+          "96-well microplate integrating identification and susceptibility testing",
+          "Integrated / split / customized board specifications",
+          "18 species boards covering common clinical genera",
+          "Stored at 2–8℃ with a 12-month shelf life",
+          "Designed for HX series analyzers"
+        ]
+      },
+      "params": [
+        {
+          "n": {
+            "zh": "规格",
+            "en": "Specification"
+          },
+          "v": {
+            "zh": "96 孔（一体板 / 分体板 / 定制板）",
+            "en": "96-well (integrated / split / customized)"
+          }
+        },
+        {
+          "n": {
+            "zh": "菌种板",
+            "en": "Species boards"
+          },
+          "v": {
+            "zh": "18 种",
+            "en": "18 types"
+          }
+        },
+        {
+          "n": {
+            "zh": "保存条件",
+            "en": "Storage"
+          },
+          "v": {
+            "zh": "2–8℃",
+            "en": "2–8℃"
+          }
+        },
+        {
+          "n": {
+            "zh": "有效期",
+            "en": "Shelf life"
+          },
+          "v": {
+            "zh": "12 个月",
+            "en": "12 months"
+          }
+        }
+      ],
+      "apps": {
+        "zh": "配套 HX 系列细菌鉴定药敏分析仪",
+        "en": "For HX series bacterial ID/AST analyzers"
+      }
+    },
+    {
+      "slug": "bc-bottle",
+      "category": "bottle",
+      "model": "BC 血培养瓶",
+      "name": {
+        "zh": "血液培养瓶",
+        "en": "Blood Culture Bottles"
+      },
+      "tagline": {
+        "zh": "六大系列全覆盖，开放兼容多品牌血培养仪",
+        "en": "Six series covering all needs, openly compatible with analyzers of other brands"
+      },
+      "image": "/assets/img/products/bc-bottle.jpg",
+      "features": {
+        "zh": [
+          "需氧、厌氧、儿童三大基础瓶型",
+          "抗生素中和型（需氧 / 厌氧 / 儿童），适合抗生素治疗后患者",
+          "开放兼容其它品牌血培养仪",
+          "有效期 1 年，供货稳定",
+          "与 BC 系列血培养仪配套性能最佳"
+        ],
+        "en": [
+          "Aerobic, anaerobic and pediatric base bottle types",
+          "Antibiotic-neutralizing series (aerobic / anaerobic / pediatric) for patients on antibiotic therapy",
+          "Openly compatible with other brands' blood culture systems",
+          "12-month shelf life with stable supply",
+          "Best performance with BC series culture systems"
+        ]
+      },
+      "params": [
+        {
+          "n": {
+            "zh": "瓶型种类",
+            "en": "Bottle types"
+          },
+          "v": {
+            "zh": "需氧 / 厌氧 / 儿童 / 抗生素中和（需氧、厌氧、儿童），共 6 种",
+            "en": "Aerobic / anaerobic / pediatric / antibiotic-neutralizing (aerobic, anaerobic, pediatric) — 6 types"
+          }
+        },
+        {
+          "n": {
+            "zh": "兼容性",
+            "en": "Compatibility"
+          },
+          "v": {
+            "zh": "开放兼容其它品牌仪器",
+            "en": "Openly compatible with other brands"
+          }
+        },
+        {
+          "n": {
+            "zh": "有效期",
+            "en": "Shelf life"
+          },
+          "v": {
+            "zh": "1 年",
+            "en": "12 months"
+          }
+        }
+      ],
+      "apps": {
+        "zh": "配套 BC 系列血培养仪及其它品牌血培养系统",
+        "en": "For BC series systems and other brands' blood culture systems"
+      }
+    }
+  ]
+}

@@ -1,0 +1,168 @@
+---
+import Base from '../../layouts/Base.astro';
+import { site, ui, honors, jobs, t, pref, lbl } from '../../lib/site.js';
+
+interface Props { lang: 'zh' | 'en'; }
+const { lang } = Astro.props;
+const p = pref(lang);
+const tdk = ui.tdk.about[lang];
+const c = site.company;
+---
+
+<Base lang={lang} title={tdk.title} desc={tdk.desc} kw={tdk.kw} path="/about/">
+  <section class="page-banner page-banner--about">
+    <div class="container">
+      <h1>{lbl('pageTitleAbout', lang)}</h1>
+      <p class="crumb">
+        <a href={p + '/'}>{lbl('breadcrumbHome', lang)}</a><span class="sep">/</span>{lbl('pageTitleAbout', lang)}
+      </p>
+    </div>
+  </section>
+
+  <!-- 公司简介 -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="bar"></div>
+        <h2>{lang === 'zh' ? '公司简介' : 'Company Profile'}</h2>
+      </div>
+      <div class="prose reveal">
+        {site.intro.long[lang].map((para) => <p>{para}</p>)}
+      </div>
+    </div>
+  </section>
+
+  <!-- 企业文化 -->
+  <section class="section alt">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="bar"></div>
+        <h2>{lbl('cultureTitle', lang)}</h2>
+      </div>
+      <div class="culture-grid">
+        {site.culture.map((item, i) => (
+          <div class:list={['culture-card', 'reveal', `reveal-d${i}`]}>
+            <h3>{t(item.k, lang)}</h3>
+            <p>{t(item.v, lang)}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 资质荣誉 -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="bar"></div>
+        <h2>{lbl('honorsTitle', lang)}</h2>
+      </div>
+      <div class="honor-grid">
+        {honors.certs.map((cert, i) => (
+          <figure class:list={['honor-cert', 'reveal', `reveal-d${i}`]}>
+            <img src={cert.img} alt={t(cert.title, lang)} width="700" height="908" loading="lazy" />
+            <figcaption>
+              <h3>{t(cert.title, lang)}</h3>
+              <p>{t(cert.note, lang)}</p>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+      <div class="honor-text-grid" style="margin-top:28px;">
+        {honors.others.map((h, i) => (
+          <div class:list={['honor-text', 'reveal', `reveal-d${i}`]}>
+            <h3>{t(h.title, lang)}</h3>
+            <p>{t(h.desc, lang)}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 发展历程 -->
+  <section class="section alt">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="bar"></div>
+        <h2>{lbl('historyTitle', lang)}</h2>
+      </div>
+      <div class="timeline">
+        {site.timeline.map((item, i) => (
+          <div class:list={['tl-item', 'reveal', `reveal-d${i % 3}`]}>
+            <div class="year">{item.year}</div>
+            <h3>{t(item.title, lang)}</h3>
+            <p>{t(item.desc, lang)}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 企业视频占位 -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="bar"></div>
+        <h2>{lbl('videoTitle', lang)}</h2>
+      </div>
+      <figure class="video-block reveal">
+        <video controls preload="metadata" poster="/assets/video/virtuo-poster.jpg" onended="this.load()" src="/assets/video/virtuo.mp4"></video>
+        <figcaption>{lbl('videoPlaceholder', lang)}</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 售后服务承诺 -->
+  <section class="section alt" id="service">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="bar"></div>
+        <h2>{lbl('serviceTitle', lang)}</h2>
+      </div>
+      <div class="service-grid">
+        {site.service.map((item, i) => (
+          <div class:list={['service-item', 'reveal', `reveal-d${i % 2}`]}>
+            <span class="no">{`0${i + 1}`}</span>
+            <p>{t(item, lang)}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 诚聘英才 -->
+  <section class="section" id="jobs">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="bar"></div>
+        <h2>{lbl('jobsTitle', lang)}</h2>
+        <p class="sub">{lbl('jobsIntro', lang)}</p>
+      </div>
+      <div class="jobs-wrapper reveal">
+        <table class="jobs-table">
+          <thead>
+            <tr>
+              <th>{lbl('jobColumn', lang)}</th>
+              <th>{lbl('deptColumn', lang)}</th>
+              <th>{lbl('countColumn', lang)}</th>
+              <th>{lbl('locationColumn', lang)}</th>
+              <th>{lbl('reqsColumn', lang)}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {jobs.positions.map((job) => (
+              <tr>
+                <td><strong>{t(job.title, lang)}</strong></td>
+                <td>{t(job.dept, lang)}</td>
+                <td>{t(job.count, lang)}</td>
+                <td>{t(job.location, lang)}</td>
+                <td>{t(job.reqs, lang)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="jobs-note">{t(jobs.note, lang)}　{t(jobs.contact, lang)}</p>
+    </div>
+  </section>
+</Base>

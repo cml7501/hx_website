@@ -1,0 +1,94 @@
+---
+import Base from '../../layouts/Base.astro';
+import { ui, products, t, pref, lbl } from '../../lib/site.js';
+
+interface Props { lang: 'zh' | 'en'; slug: string; }
+const { lang, slug } = Astro.props;
+const p = pref(lang);
+const prod = products.products.find((x) => x.slug === slug)!;
+const cat = products.categories.find((c) => c.id === prod.category)!;
+const related = products.products.filter((x) => x.category === prod.category && x.slug !== slug).slice(0, 3);
+const catName = t(cat.name, lang);
+const title = lang === 'zh'
+  ? `${prod.model} ${t(prod.name, lang)} - 恒星科技`
+  : `${prod.model} ${t(prod.name, lang)} - Hengxing`;
+const desc = t(prod.tagline, lang);
+const kw = [prod.model, catName, ...(lang === 'zh' ? ['恒星科技'] : ['Hengxing'])].join(',');
+---
+
+<Base lang={lang} {title} {desc} {kw} path={`/products/${slug}/`}>
+  <section class="page-banner">
+    <div class="container">
+      <h1>{catName}</h1>
+      <p class="crumb">
+        <a href={p + '/'}>{lbl('breadcrumbHome', lang)}</a><span class="sep">/</span>
+        <a href={p + '/products/'}>{lbl('pageTitleProducts', lang)}</a><span class="sep">/</span>{prod.model}
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="pd-layout">
+        <div class="pd-pic reveal">
+          <img src={prod.image} alt={prod.model} width="800" height="600" />
+        </div>
+        <div class="pd-info reveal reveal-d1">
+          <div class="model">{prod.model}</div>
+          <h1>{t(prod.name, lang)}</h1>
+          <p class="tagline">{t(prod.tagline, lang)}</p>
+          <div class="pd-meta">
+            <span>{catName}</span>
+            <span>ISO9001 / ISO13485</span>
+          </div>
+          <div class="pd-actions">
+            <a class="btn btn-primary" href={`${p}/contact/?product=${encodeURIComponent(prod.model)}`}>{lbl('onlineInquiry', lang)}</a>
+            <a class="btn btn-primary" style="background:#fff;color:var(--c-primary);border:1px solid var(--c-primary);" href={`tel:${'055165327222'}`}>{lbl('callUs', lang)}</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pd-section reveal">
+        <h2>{lbl('featuresTitle', lang)}</h2>
+        <ul class="feat-list">
+          {prod.features[lang].map((f) => <li>{f}</li>)}
+        </ul>
+      </div>
+
+      <div class="pd-section reveal">
+        <h2>{lbl('paramsTitle', lang)}</h2>
+        <table class="param-table">
+          <tbody>
+            {prod.params.map((row) => (
+              <tr><th>{t(row.n, lang)}</th><td>{t(row.v, lang)}</td></tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="pd-section reveal">
+        <h2>{lbl('appsTitle', lang)}</h2>
+        <p style="color:var(--c-text-2);">{t(prod.apps, lang)}</p>
+      </div>
+
+      {related.length > 0 && (
+        <div class="pd-section reveal">
+          <h2>{lbl('relatedTitle', lang)}</h2>
+          <div class="grid-3">
+            {related.map((r) => (
+              <a class="p-card" href={`${p}/products/${r.slug}/`}>
+                <div class="pic"><img src={r.image} alt={r.model} width="800" height="600" loading="lazy" /></div>
+                <div class="info">
+                  <div class="model">{r.model}</div>
+                  <h3>{t(r.name, lang)}</h3>
+                  <p class="desc">{t(r.tagline, lang)}</p>
+                  <span class="go">{lbl('viewDetail', lang)}</span>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  </section>
+</Base>

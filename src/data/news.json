@@ -1,0 +1,70 @@
+[
+  {
+    "slug": "tbd-2026-product-upgrade",
+    "date": "2026-09-20",
+    "cat": "company",
+    "thumb": "/assets/img/news/1791879328749-result_80_target-15.jpg",
+    "title": {
+      "zh": "HX-SMART66 应用方案持续升级",
+      "en": "[To be added] Sample news: HX-SMART66 application solutions keep evolving"
+    },
+    "summary": {
+      "zh": "本条为占位新闻，用于演示新闻版式，正式上线前请替换为公司真实动态。【待补充】",
+      "en": "This is a placeholder article demonstrating the news layout; replace it with real company news before launch. [To be added]"
+    },
+    "body": {
+      "zh": [
+        "本条为占位新闻，用于展示新闻列表与详情页版式。",
+        "正式上线前，请提供公司近期真实动态（如新品发布、参展信息、客户案例、荣誉获奖等），由网站管理员在内容管理页中替换本条内容。【待补充】"
+      ],
+      "en": [
+        "This is a placeholder article demonstrating the news list and detail layouts.",
+        "Before launch, replace it with real company updates (product releases, exhibitions, customer stories, awards, etc.) via the content admin page. [To be added]"
+      ]
+    }
+  },
+  {
+    "slug": "tbd-2026-exhibition",
+    "date": "2026-06-18",
+    "cat": "company",
+    "thumb": "/assets/img/news/1791879691127-result_16_target.jpg",
+    "title": {
+      "zh": "恒星科技参展检验医学行业展会",
+      "en": "[To be added] Sample news: Hengxing exhibits at a laboratory medicine expo (placeholder)"
+    },
+    "summary": {
+      "zh": "占位新闻：展会预告与参展产品介绍将在此发布。【待补充】",
+      "en": "Placeholder news: exhibition previews and exhibited products will be published here. [To be added]"
+    },
+    "body": {
+      "zh": [
+        "占位新闻：此处可发布公司参加各届检验医学、医疗器械展会的预告与回顾，介绍参展设备与现场活动。【待补充】"
+      ],
+      "en": [
+        "Placeholder news: exhibition previews and recaps with on-site equipment and activities will be published here. [To be added]"
+      ]
+    }
+  },
+  {
+    "slug": "tbd-2026-service-upgrade",
+    "date": "2026-03-10",
+    "cat": "company",
+    "thumb": "/assets/img/news/1791880122809-05.jpg",
+    "title": {
+      "zh": "售后服务体系升级公告",
+      "en": "[To be added] Sample news: after-sales service system upgrade announcement (placeholder)"
+    },
+    "summary": {
+      "zh": "售后服务政策、服务网络升级等信息将在此发布。",
+      "en": "Placeholder news: after-sales policies and service network upgrades will be published here. [To be added]"
+    },
+    "body": {
+      "zh": [
+        "占位新闻：此处可发布售后服务政策调整、服务网络建设、培训安排等信息。【待补充】"
+      ],
+      "en": [
+        "Placeholder news: after-sales policy updates, service network construction and training schedules will be published here. [To be added]"
+      ]
+    }
+  }
+]

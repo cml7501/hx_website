@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="360" viewBox="0 0 1920 360" role="img" aria-label="联系我们主题底纹">
+  <!-- 透明底，叠加在标准蓝色渐变横幅之上； motifs 集中在右侧，左侧留白给标题 -->
+  <defs>
+    <radialGradient id="glow" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- 细网格（与首页 hero 同语言） -->
+  <g stroke="#FFFFFF" opacity=".05">
+    <line x1="0" y1="45" x2="1920" y2="45"/><line x1="0" y1="90" x2="1920" y2="90"/>
+    <line x1="0" y1="135" x2="1920" y2="135"/><line x1="0" y1="180" x2="1920" y2="180"/>
+    <line x1="0" y1="225" x2="1920" y2="225"/><line x1="0" y1="270" x2="1920" y2="270"/>
+    <line x1="0" y1="315" x2="1920" y2="315"/>
+  </g>
+
+  <!-- 背景光晕与雷达环 -->
+  <circle cx="1040" cy="60" r="70" fill="url(#glow)"/>
+  <circle cx="1320" cy="315" r="85" fill="url(#glow)"/>
+  <circle cx="1820" cy="150" r="130" fill="url(#glow)"/>
+  <g fill="none" stroke="#FFFFFF" opacity=".08">
+    <circle cx="1920" cy="180" r="70"/>
+    <circle cx="1920" cy="180" r="130"/>
+    <circle cx="1920" cy="180" r="190"/>
+  </g>
+  <circle cx="1900" cy="30" r="230" fill="#FFFFFF" opacity=".06"/>
+
+  <!-- 折叠地图（定位底衬） -->
+  <g transform="translate(1330 118)" stroke="#FFFFFF" fill="none">
+    <path d="M0 30 L60 0 L120 30 L180 0 L180 110 L120 140 L60 110 L0 140 Z" stroke-width="2.5" fill="#FFFFFF" fill-opacity=".06"/>
+    <line x1="60" y1="0" x2="60" y2="110" stroke-width="1.5" opacity=".4"/>
+    <line x1="120" y1="30" x2="120" y2="140" stroke-width="1.5" opacity=".4"/>
+    <path d="M14 96 C50 60 90 84 150 40" stroke-width="2" stroke-dasharray="7 6" opacity=".55"/>
+    <line x1="20" y1="34" x2="160" y2="116" stroke-width="1.5" opacity=".3"/>
+  </g>
+
+  <!-- 定位大头针 + 信号波 -->
+  <g transform="translate(1455 93)" stroke="#FFFFFF" fill="none">
+    <path d="M-22 -16 A30 30 0 0 1 22 -16" stroke-width="2.5" opacity=".55" stroke-linecap="round"/>
+    <path d="M-34 -26 A48 48 0 0 1 34 -26" stroke-width="2.5" opacity=".35" stroke-linecap="round"/>
+    <path d="M0 112 C0 112 -44 66 -44 40 A44 44 0 1 1 44 40 C44 66 0 112 0 112 Z" stroke-width="2.5" fill="#FFFFFF" fill-opacity=".14"/>
+    <circle cy="38" r="15" fill="#F4C542" fill-opacity=".85" stroke="none"/>
+    <circle cy="38" r="6" fill="#FFFFFF" fill-opacity=".9" stroke="none"/>
+  </g>
+  <ellipse cx="1455" cy="216" rx="26" ry="6" fill="#FFFFFF" opacity=".15"/>
+
+  <!-- 信封（邮件） -->
+  <g transform="translate(1200 84)" stroke="#FFFFFF" fill="none">
+    <rect x="0" y="0" width="92" height="64" rx="6" stroke-width="2.5" fill="#FFFFFF" fill-opacity=".08"/>
+    <path d="M4 8 L46 40 L88 8" stroke-width="2.5" opacity=".85"/>
+    <path d="M4 58 L36 34 M88 58 L56 34" stroke-width="1.5" opacity=".45"/>
+    <circle cx="88" cy="2" r="8" fill="#D9534F" fill-opacity=".85" stroke="none"/>
+  </g>
+  <g stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" opacity=".5">
+    <line x1="1306" y1="104" x2="1322" y2="104"/>
+    <line x1="1306" y1="118" x2="1316" y2="118"/>
+  </g>
+  <!-- 寄出航迹 -->
+  <path d="M1300 156 C1340 178 1380 186 1412 188" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-dasharray="6 7" opacity=".4"/>
+
+  <!-- 对话气泡（在线客服） -->
+  <g transform="translate(1560 72)" stroke="#FFFFFF" fill="none">
+    <rect x="0" y="0" width="74" height="48" rx="12" stroke-width="2.5" fill="#FFFFFF" fill-opacity=".08"/>
+    <path d="M18 48 l-6 14 16 -14" stroke-width="2.5"/>
+    <circle cx="24" cy="24" r="3" fill="#FFFFFF" fill-opacity=".65" stroke="none"/>
+    <circle cx="37" cy="24" r="3" fill="#FFFFFF" fill-opacity=".65" stroke="none"/>
+    <circle cx="50" cy="24" r="3" fill="#FFFFFF" fill-opacity=".65" stroke="none"/>
+  </g>
+
+  <!-- 电话听筒 -->
+  <g transform="translate(1672 232) rotate(-30)" stroke="#FFFFFF" fill="none">
+    <circle cx="0" cy="12" r="9" stroke-width="2.5" fill="#FFFFFF" fill-opacity=".2"/>
+    <circle cx="56" cy="12" r="9" stroke-width="2.5" fill="#FFFFFF" fill-opacity=".2"/>
+    <path d="M0 12 C14 -8 42 -8 56 12" stroke-width="3" fill="none"/>
+    <path d="M66 -4 q9 10 0 22" stroke-width="2.5" opacity=".6" stroke-linecap="round"/>
+    <path d="M76 -12 q14 16 0 34" stroke-width="2.5" opacity=".4" stroke-linecap="round"/>
+  </g>
+
+  <!-- 时钟（服务时间） -->
+  <g transform="translate(1315 268)" stroke="#FFFFFF" fill="none">
+    <circle r="20" stroke-width="2.5" fill="#FFFFFF" fill-opacity=".1"/>
+    <line x1="0" y1="0" x2="0" y2="-12" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="0" y1="0" x2="9" y2="4" stroke-width="2.5" stroke-linecap="round"/>
+    <circle cx="0" cy="-15" r="1.5" fill="#FFFFFF" fill-opacity=".6" stroke="none"/>
+    <circle cx="15" cy="0" r="1.5" fill="#FFFFFF" fill-opacity=".6" stroke="none"/>
+    <circle cx="0" cy="15" r="1.5" fill="#FFFFFF" fill-opacity=".6" stroke="none"/>
+    <circle cx="-15" cy="0" r="1.5" fill="#FFFFFF" fill-opacity=".6" stroke="none"/>
+  </g>
+
+  <!-- 医疗十字与散点 -->
+  <g stroke="#FFFFFF" stroke-width="3" opacity=".15">
+    <line x1="1100" y1="50" x2="1132" y2="50"/><line x1="1116" y1="34" x2="1116" y2="66"/>
+    <line x1="1856" y1="120" x2="1888" y2="120"/><line x1="1872" y1="104" x2="1872" y2="136"/>
+  </g>
+  <g fill="#FFFFFF" opacity=".5">
+    <circle cx="1050" cy="180" r="4"/>
+    <circle cx="1240" cy="220" r="3"/>
+    <circle cx="1780" cy="180" r="3"/>
+    <circle cx="1720" cy="60" r="2.5"/>
+  </g>
+  <g fill="#F4C542" opacity=".35">
+    <circle cx="1620" cy="180" r="4"/>
+    <circle cx="1385" cy="70" r="3"/>
+  </g>
+</svg>

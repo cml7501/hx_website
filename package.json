@@ -1,0 +1,19 @@
+{
+  "name": "hx-website",
+  "version": "1.0.0",
+  "description": "合肥恒星科技开发有限公司官网（中英双语静态站）",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "admin": "node admin/server.mjs",
+    "admin-passwd": "node scripts/admin-passwd.mjs",
+    "extract:news": "node scripts/extract-news.mjs",
+    "placeholders": "node scripts/gen-placeholders.mjs"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.4",
+    "astro": "^5.0.0"
+  }
+}

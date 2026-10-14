@@ -1,0 +1,14 @@
+---
+import Base from '../layouts/Base.astro';
+import { ui, pref } from '../lib/site.js';
+const tdk = ui.tdk.notFound.zh;
+const p = pref('zh');
+---
+
+<Base lang="zh" title={tdk.title} desc={tdk.desc} path="/">
+  <section class="nf container">
+    <h1>404</h1>
+    <p>您访问的页面不存在或已被移动。</p>
+    <a class="btn btn-primary" href={p + '/'}>返回首页</a>
+  </section>
+</Base>

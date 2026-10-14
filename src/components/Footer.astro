@@ -1,0 +1,67 @@
+---
+import { site, ui, products, t, pref, lbl } from '../lib/site.js';
+
+interface Props {
+  lang: 'zh' | 'en';
+  noMargin?: boolean;
+}
+const { lang, noMargin = false } = Astro.props;
+const p = pref(lang);
+const c = site.company;
+const year = new Date().getFullYear();
+---
+
+<footer class:list={['site-footer', { 'no-mt': noMargin }]}>
+  <div class="container">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <img src="/assets/img/logo.png?v=2" alt="Logo" width="281" height="46" loading="lazy" />
+        <p class="intro">{lbl('footerIntro', lang)}</p>
+        <span class="badge">{lbl('certBadge', lang)}</span>
+      </div>
+
+      <div class="footer-col">
+        <h3>{lbl('productsNav', lang)}</h3>
+        {products.categories.map((cat) => (
+          <a href={`${p}/products/?cat=${cat.id}`}>{t(cat.name, lang)}</a>
+        ))}
+      </div>
+
+      <div class="footer-col">
+        <h3>{lbl('quickNav', lang)}</h3>
+        {ui.nav.filter((n) => n.key !== 'home').map((n) => (
+          <a href={p + n.href}>{t(n.label, lang)}</a>
+        ))}
+        <a href={p + '/about/#jobs'}>{lbl('jobsTitle', lang)}</a>
+        <a href={p + '/about/#service'}>{lbl('serviceTitle', lang)}</a>
+      </div>
+
+      <div class="footer-col footer-contact">
+        <h3>{lbl('aboutNavCol', lang)}</h3>
+        <p>{t(c.address, lang)}</p>
+        <p>
+          {lbl('salesHotline', lang)}：<span class="tel">{c.salesPhones[0]}</span>
+          <small style="display:block;font-weight:400;opacity:.8">{c.salesPhones[1]}</small>
+        </p>
+        <p>{lbl('serviceHotline', lang)}：{c.servicePhones.join(' / ')}</p>
+        <p>E-mail：{c.email}</p>
+        <div class="footer-qr">
+          <img src="/assets/img/wechat-qr.png?v=1" alt="WeChat QR placeholder" width="92" height="92" loading="lazy" />
+          <span>{lbl('qrPlaceholder', lang)}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="inner">
+        <span>
+          © {year} {t(c.name, lang)} {lbl('copyright', lang)}
+        </span>
+        <span>
+          <a href={c.icpUrl} target="_blank" rel="noopener noreferrer">{c.icp}</a>
+          &nbsp;|&nbsp; {c.website}
+        </span>
+      </div>
+    </div>
+  </div>
+</footer>

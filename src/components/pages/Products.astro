@@ -1,0 +1,79 @@
+---
+import Base from '../../layouts/Base.astro';
+import { ui, products, t, pref, lbl } from '../../lib/site.js';
+
+interface Props { lang: 'zh' | 'en'; }
+const { lang } = Astro.props;
+const p = pref(lang);
+const tdk = ui.tdk.products[lang];
+---
+
+<Base lang={lang} title={tdk.title} desc={tdk.desc} kw={tdk.kw} path="/products/">
+  <section class="page-banner page-banner--products">
+    <div class="container">
+      <h1>{lbl('pageTitleProducts', lang)}</h1>
+      <p class="crumb">
+        <a href={p + '/'}>{lbl('breadcrumbHome', lang)}</a><span class="sep">/</span>{lbl('pageTitleProducts', lang)}
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="filter-chips reveal" data-filter>
+        <button class="chip active" data-cat="all">{lbl('catAll', lang)}</button>
+        {products.categories.map((cat) => (
+          <button class="chip" data-cat={cat.id}>{t(cat.name, lang)}</button>
+        ))}
+      </div>
+
+      <div class="grid-3" data-grid>
+        {products.products.map((prod, i) => {
+          const cat = products.categories.find((c) => c.id === prod.category)!;
+          return (
+            <a
+              class:list={['p-card', 'reveal', `reveal-d${i % 3}`]}
+              href={`${p}/products/${prod.slug}/`}
+              data-cat={prod.category}
+            >
+              <div class="pic">
+                <span class="cat-tag">{t(cat.name, lang)}</span>
+                <img src={prod.image} alt={prod.model} width="800" height="600" loading="lazy" />
+              </div>
+              <div class="info">
+                <div class="model">{prod.model}</div>
+                <h3>{t(prod.name, lang)}</h3>
+                <p class="desc">{t(prod.tagline, lang)}</p>
+                <span class="go">{lbl('viewDetail', lang)}</span>
+              </div>
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+</Base>
+
+<script>
+  // 客户端分类筛选（纯展示切换，初始分类由 URL ?cat= 指定）
+  const filter = document.querySelector('[data-filter]');
+  const grid = document.querySelector('[data-grid]');
+  if (filter && grid) {
+    const chips = filter.querySelectorAll<HTMLButtonElement>('.chip');
+    const cards = grid.querySelectorAll<HTMLElement>('[data-cat]');
+    const apply = (cat: string) => {
+      chips.forEach((c) => c.classList.toggle('active', c.dataset.cat === cat));
+      cards.forEach((card) => {
+        const show = cat === 'all' || card.dataset.cat === cat;
+        card.style.display = show ? '' : 'none';
+        if (show) {
+          card.classList.remove('in');
+          requestAnimationFrame(() => requestAnimationFrame(() => card.classList.add('in')));
+        }
+      });
+    };
+    chips.forEach((chip) => chip.addEventListener('click', () => apply(chip.dataset.cat || 'all')));
+    const initial = new URLSearchParams(location.search).get('cat');
+    if (initial) apply(initial);
+  }
+</script>

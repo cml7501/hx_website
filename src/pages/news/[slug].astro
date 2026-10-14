@@ -1,0 +1,10 @@
+---
+import NewsDetail from '../../components/pages/NewsDetail.astro';
+import { sortedNews } from '../../lib/site.js';
+
+export function getStaticPaths() {
+  return sortedNews.map((n) => ({ params: { slug: n.slug } }));
+}
+---
+
+<NewsDetail lang="zh" slug={Astro.params.slug!} />

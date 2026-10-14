@@ -1,0 +1,75 @@
+---
+import Base from '../../layouts/Base.astro';
+import { ui, lbl, pref } from '../../lib/site.js';
+import replies from '../../data/replies.json';
+
+interface Props { lang: 'zh' | 'en'; }
+const { lang } = Astro.props;
+const p = pref(lang);
+const tdk = ui.tdk.board[lang];
+---
+
+<Base lang={lang} title={tdk.title} desc={tdk.desc} kw={tdk.kw} path="/board/">
+  <section class="page-banner page-banner--contact">
+    <div class="container">
+      <h1>{lbl('pageTitleBoard', lang)}</h1>
+      <p class="crumb">
+        <a href={p + '/'}>{lbl('breadcrumbHome', lang)}</a><span class="sep">/</span>{lbl('pageTitleBoard', lang)}
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container board-wrap">
+      <p class="board-intro">{lbl('boardIntro', lang)}</p>
+
+      {replies.length === 0 && <p class="board-empty">{lbl('boardEmpty', lang)}</p>}
+
+      {replies.map((r) => (
+        <article class="board-item">
+          <header>
+            <strong>{r.name}</strong>
+            <time datetime={r.date}>{r.date}</time>
+          </header>
+          <p class="board-msg">{r.message}</p>
+          <div class="board-reply">
+            <span class="board-reply-label">{lbl('boardReplyLabel', lang)}</span>
+            <p>{r.reply}</p>
+          </div>
+        </article>
+      ))}
+
+      <p class="board-cta">
+        <a class="btn btn-primary" href={p + '/contact/'}>{lbl('boardCta', lang)}</a>
+      </p>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .board-wrap { max-width: 860px; }
+  .board-intro { color: #5a6b7f; margin-bottom: 26px; line-height: 1.8; }
+  .board-empty { text-align: center; color: #98a6b8; padding: 44px 0; }
+  .board-item {
+    background: #fff;
+    border: 1px solid #e6ecf4;
+    border-radius: 12px;
+    padding: 20px 22px;
+    margin-bottom: 18px;
+    box-shadow: 0 2px 10px rgba(6, 46, 99, .05);
+  }
+  .board-item header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; }
+  .board-item header strong { color: var(--c-primary-deep); font-size: 16px; }
+  .board-item time { color: #98a6b8; font-size: 13px; }
+  .board-msg { color: #3d4a5c; line-height: 1.8; }
+  .board-reply {
+    margin-top: 14px;
+    background: #f2f8ff;
+    border-left: 3px solid var(--c-primary);
+    border-radius: 6px;
+    padding: 12px 16px;
+  }
+  .board-reply-label { display: block; font-size: 13px; font-weight: 700; color: var(--c-primary-deep); margin-bottom: 4px; }
+  .board-reply p { color: #3d4a5c; line-height: 1.8; margin: 0; }
+  .board-cta { text-align: center; margin-top: 28px; }
+</style>

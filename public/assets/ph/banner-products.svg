@@ -1,0 +1,202 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="360" viewBox="0 0 1920 360" role="img" aria-label="微生物诊断主题底纹">
+  <!-- 透明底，叠加在标准蓝色渐变横幅之上； motifs 集中在右侧，左侧留白给标题 -->
+  <defs>
+    <radialGradient id="dish" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity=".30"/>
+      <stop offset=".8" stop-color="#FFFFFF" stop-opacity=".12"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity=".42"/>
+    </radialGradient>
+    <radialGradient id="glow" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- 细网格（与首页 hero 同语言） -->
+  <g stroke="#FFFFFF" opacity=".05">
+    <line x1="0" y1="45" x2="1920" y2="45"/><line x1="0" y1="90" x2="1920" y2="90"/>
+    <line x1="0" y1="135" x2="1920" y2="135"/><line x1="0" y1="180" x2="1920" y2="180"/>
+    <line x1="0" y1="225" x2="1920" y2="225"/><line x1="0" y1="270" x2="1920" y2="270"/>
+    <line x1="0" y1="315" x2="1920" y2="315"/>
+  </g>
+
+  <!-- 背景光晕与雷达环，营造纵深 -->
+  <circle cx="1030" cy="60" r="70" fill="url(#glow)"/>
+  <circle cx="1320" cy="320" r="85" fill="url(#glow)"/>
+  <circle cx="1830" cy="150" r="130" fill="url(#glow)"/>
+  <g fill="none" stroke="#FFFFFF" opacity=".08">
+    <circle cx="1920" cy="180" r="70"/>
+    <circle cx="1920" cy="180" r="130"/>
+    <circle cx="1920" cy="180" r="190"/>
+  </g>
+
+  <!-- 主培养皿：菌落 + 划线接种 + 分区线 -->
+  <g>
+    <circle cx="1430" cy="185" r="140" fill="url(#dish)" stroke="#FFFFFF" stroke-width="3" opacity=".95"/>
+    <circle cx="1430" cy="185" r="117.6" fill="none" stroke="#FFFFFF" stroke-width="1.5" opacity=".5"/>
+    <circle cx="1430" cy="185" r="109.2" fill="#FFFFFF" opacity=".08"/>
+    <line x1="1309" y1="115" x2="1551" y2="255" stroke="#FFFFFF" stroke-width="1.5" opacity=".18"/>
+    <line x1="1551" y1="118" x2="1309" y2="252" stroke="#FFFFFF" stroke-width="1.5" opacity=".14"/>
+    <g opacity=".9">
+      <circle cx="1358" cy="140" r="12" fill="#F4C542" opacity=".8"/>
+      <circle cx="1478" cy="238" r="9" fill="#FFFFFF" opacity=".55"/>
+      <circle cx="1402" cy="228" r="5" fill="#D9534F" opacity=".6"/>
+      <circle cx="1490" cy="128" r="12" fill="#FFFFFF" opacity=".4"/>
+      <circle cx="1372" cy="240" r="6" fill="#FFFFFF" opacity=".5"/>
+      <circle cx="1494" cy="196" r="8" fill="#F4C542" opacity=".55"/>
+      <circle cx="1345" cy="185" r="4" fill="#FFFFFF" opacity=".45"/>
+      <circle cx="1440" cy="180" r="5" fill="#FFFFFF" opacity=".5"/>
+      <circle cx="1465" cy="155" r="9" fill="none" stroke="#FFFFFF" stroke-width="2" opacity=".6"/>
+      <circle cx="1465" cy="155" r="3.5" fill="#FFFFFF" opacity=".6"/>
+      <circle cx="1395" cy="168" r="2.2" fill="#FFFFFF" opacity=".6"/>
+      <circle cx="1403" cy="160" r="2.2" fill="#FFFFFF" opacity=".55"/>
+      <circle cx="1400" cy="175" r="2.2" fill="#F4C542" opacity=".6"/>
+      <circle cx="1390" cy="158" r="2.2" fill="#FFFFFF" opacity=".5"/>
+      <path d="M1360 155 q34 -26 70 -8 t76 -12" fill="none" stroke="#FFFFFF" stroke-width="2" opacity=".5"/>
+      <path d="M1370 250 q44 20 92 -2" fill="none" stroke="#FFFFFF" stroke-width="2" opacity=".4"/>
+      <path d="M1352 200 q40 -14 78 4" fill="none" stroke="#FFFFFF" stroke-width="2" opacity=".35"/>
+    </g>
+  </g>
+
+  <!-- 次培养皿 -->
+  <g>
+    <circle cx="1706" cy="86" r="58" fill="url(#dish)" stroke="#FFFFFF" stroke-width="3" opacity=".95"/>
+    <circle cx="1706" cy="86" r="48.8" fill="none" stroke="#FFFFFF" stroke-width="1.5" opacity=".5"/>
+    <circle cx="1690" cy="98" r="7" fill="#F4C542" opacity=".65"/>
+    <circle cx="1722" cy="72" r="4" fill="#FFFFFF" opacity=".55"/>
+    <circle cx="1712" cy="104" r="3" fill="#D9534F" opacity=".5"/>
+    <path d="M1672 68 q30 -16 62 4" fill="none" stroke="#FFFFFF" stroke-width="2" opacity=".4"/>
+  </g>
+
+  <!-- 小培养皿 ×2 -->
+  <g>
+    <circle cx="1158" cy="300" r="44" fill="url(#dish)" stroke="#FFFFFF" stroke-width="3" opacity=".9"/>
+    <circle cx="1158" cy="300" r="37" fill="none" stroke="#FFFFFF" stroke-width="1.5" opacity=".5"/>
+    <circle cx="1146" cy="292" r="6" fill="#F4C542" opacity=".6"/>
+    <circle cx="1172" cy="310" r="4" fill="#FFFFFF" opacity=".55"/>
+  </g>
+  <g>
+    <circle cx="1290" cy="85" r="30" fill="url(#dish)" stroke="#FFFFFF" stroke-width="3" opacity=".9"/>
+    <circle cx="1290" cy="85" r="25" fill="none" stroke="#FFFFFF" stroke-width="1.5" opacity=".5"/>
+    <circle cx="1282" cy="80" r="5" fill="#F4C542" opacity=".6"/>
+    <circle cx="1299" cy="93" r="3.5" fill="#FFFFFF" opacity=".55"/>
+  </g>
+
+  <!-- DNA 双螺旋 -->
+  <g fill="none" stroke="#FFFFFF" opacity=".32">
+    <path d="M1012 30 C1058 80 962 140 1012 195 C1062 250 962 310 1012 350" stroke-width="2.5"/>
+    <path d="M1056 30 C1010 80 1106 140 1056 195 C1006 250 1106 310 1056 350" stroke-width="2.5"/>
+    <g stroke-width="1.5" opacity=".7">
+      <line x1="1022" y1="55" x2="1046" y2="55"/>
+      <line x1="1020" y1="88" x2="1044" y2="92"/>
+      <line x1="1014" y1="122" x2="1050" y2="122"/>
+      <line x1="1020" y1="160" x2="1044" y2="156"/>
+      <line x1="1022" y1="225" x2="1046" y2="225"/>
+      <line x1="1018" y1="262" x2="1046" y2="258"/>
+      <line x1="1014" y1="295" x2="1050" y2="295"/>
+      <line x1="1020" y1="330" x2="1044" y2="326"/>
+    </g>
+  </g>
+  <circle cx="1050" cy="122" r="5" fill="#F4C542" opacity=".55"/>
+  <circle cx="1016" cy="258" r="4" fill="#FFFFFF" opacity=".5"/>
+
+  <!-- 试管组 -->
+  <g transform="rotate(-12 1608 88)" stroke="#FFFFFF" fill="none" opacity=".85">
+    <rect x="1580" y="48" width="17" height="74" rx="8.5" stroke-width="2.5"/>
+    <line x1="1583" y1="98" x2="1594" y2="98" stroke-width="2" opacity=".6"/>
+    <rect x="1583" y="98" width="11" height="18" rx="5" fill="#FFFFFF" fill-opacity=".22" stroke="none"/>
+    <rect x="1604" y="44" width="17" height="74" rx="8.5" stroke-width="2.5"/>
+    <line x1="1607" y1="102" x2="1618" y2="102" stroke-width="2" opacity=".6"/>
+    <rect x="1607" y="102" width="11" height="14" rx="5" fill="#F4C542" fill-opacity=".45" stroke="none"/>
+    <rect x="1628" y="50" width="17" height="74" rx="8.5" stroke-width="2.5"/>
+    <line x1="1631" y1="96" x2="1642" y2="96" stroke-width="2" opacity=".6"/>
+    <rect x="1631" y="96" width="11" height="22" rx="5" fill="#FFFFFF" fill-opacity=".22" stroke="none"/>
+  </g>
+
+  <!-- 锥形瓶 + 气泡 -->
+  <g stroke="#FFFFFF" fill="none" opacity=".8">
+    <path d="M1044 242 L1072 242 L1090 288 L1026 288 Z" stroke-width="2.5" fill="#FFFFFF" fill-opacity=".08"/>
+    <rect x="1048" y="230" width="20" height="14" rx="3" stroke-width="2.5"/>
+    <line x1="1034" y1="276" x2="1082" y2="276" stroke-width="2" opacity=".6"/>
+    <rect x="1034" y="276" width="48" height="10" rx="4" fill="#F4C542" fill-opacity=".4" stroke="none"/>
+  </g>
+  <circle cx="1050" cy="222" r="3" fill="#FFFFFF" opacity=".5"/>
+  <circle cx="1064" cy="212" r="2" fill="#FFFFFF" opacity=".45"/>
+
+  <!-- 显微镜线稿 -->
+  <g transform="translate(1772 168) scale(.9)" stroke="#FFFFFF" fill="none" opacity=".88">
+    <rect x="2" y="122" width="92" height="10" rx="5" stroke-width="3"/>
+    <circle cx="38" cy="110" r="7" stroke-width="2.5"/>
+    <rect x="0" y="88" width="56" height="7" rx="3.5" stroke-width="3"/>
+    <line x1="22" y1="84" x2="46" y2="84" stroke-width="2" opacity=".7"/>
+    <path d="M76 122 C90 98 88 60 60 40" stroke-width="3.5"/>
+    <rect x="42" y="4" width="16" height="40" rx="8" stroke-width="3" fill="#FFFFFF" fill-opacity=".2" transform="rotate(-18 50 24)"/>
+    <path d="M52 48 q8 6 8 12" stroke-width="2.5" opacity=".8"/>
+    <rect x="33" y="58" width="7" height="15" rx="3" stroke-width="2.5" fill="#FFFFFF" fill-opacity=".35"/>
+    <rect x="45" y="60" width="7" height="18" rx="3" stroke-width="2.5" fill="#FFFFFF" fill-opacity=".35"/>
+  </g>
+
+  <!-- 杆菌（胶囊形） -->
+  <g opacity=".85" fill="none" stroke="#FFFFFF" stroke-width="2.5">
+    <rect x="1057" y="112" width="46" height="16" rx="8" transform="rotate(-18 1080 120)"/>
+    <rect x="1237" y="60" width="46" height="16" rx="8" transform="rotate(14 1260 68)"/>
+    <rect x="1274" y="150" width="46" height="16" rx="8" transform="rotate(-10 1297 158)"/>
+    <rect x="1600" y="180" width="46" height="16" rx="8" transform="rotate(24 1623 188)"/>
+    <rect x="1418" y="322" width="46" height="16" rx="8" transform="rotate(-8 1441 330)"/>
+    <rect x="1810" y="300" width="46" height="16" rx="8" transform="rotate(-14 1833 308)"/>
+  </g>
+
+  <!-- 双球菌 -->
+  <g fill="none" stroke="#FFFFFF" stroke-width="2.5" opacity=".7">
+    <circle cx="1246" cy="205" r="6"/>
+    <circle cx="1259" cy="205" r="6"/>
+  </g>
+
+  <!-- 链球菌链 -->
+  <g fill="none" stroke="#FFFFFF" stroke-width="2.5" opacity=".8">
+    <circle cx="1568" cy="300" r="10"/>
+    <circle cx="1602" cy="318" r="8"/>
+    <circle cx="1640" cy="300" r="12"/>
+    <circle cx="1678" cy="322" r="7"/>
+  </g>
+  <path d="M1568 300 L1602 318 L1640 300 L1678 322" stroke="#FFFFFF" stroke-width="1.5" opacity=".4" fill="none"/>
+
+  <!-- 螺旋菌波浪线 -->
+  <path d="M1200 138 q18 -20 36 0 t36 0 t36 0" fill="none" stroke="#FFFFFF" stroke-width="2.5" opacity=".6"/>
+  <path d="M1540 60 q16 -16 32 0 t32 0" fill="none" stroke="#FFFFFF" stroke-width="2" opacity=".45"/>
+
+  <!-- 分子/检测网络 -->
+  <g opacity=".7">
+    <line x1="1846" y1="120" x2="1880" y2="96" stroke="#FFFFFF" stroke-width="1.5" opacity=".5"/>
+    <line x1="1880" y1="96" x2="1866" y2="60" stroke="#FFFFFF" stroke-width="1.5" opacity=".5"/>
+    <line x1="1846" y1="120" x2="1812" y2="148" stroke="#FFFFFF" stroke-width="1.5" opacity=".5"/>
+    <line x1="1880" y1="96" x2="1902" y2="138" stroke="#FFFFFF" stroke-width="1.5" opacity=".5"/>
+    <circle cx="1846" cy="120" r="6" fill="none" stroke="#FFFFFF" stroke-width="2"/>
+    <circle cx="1880" cy="96" r="9" fill="none" stroke="#FFFFFF" stroke-width="2"/>
+    <circle cx="1866" cy="60" r="4" fill="#FFFFFF" opacity=".55"/>
+    <circle cx="1812" cy="148" r="5" fill="#F4C542" opacity=".5"/>
+    <circle cx="1902" cy="138" r="4" fill="#FFFFFF" opacity=".5"/>
+  </g>
+
+  <!-- 医疗十字点缀 -->
+  <g stroke="#FFFFFF" stroke-width="3" opacity=".15">
+    <line x1="1092" y1="38" x2="1124" y2="38"/><line x1="1108" y1="22" x2="1108" y2="54"/>
+    <line x1="1330" y1="62" x2="1362" y2="62"/><line x1="1346" y1="46" x2="1346" y2="78"/>
+    <line x1="1856" y1="336" x2="1888" y2="336"/><line x1="1872" y1="320" x2="1872" y2="352"/>
+  </g>
+
+  <!-- 散点与光斑 -->
+  <g fill="#FFFFFF" opacity=".5">
+    <circle cx="1040" cy="220" r="4"/>
+    <circle cx="1250" cy="250" r="3"/>
+    <circle cx="1330" cy="60" r="2.5"/>
+    <circle cx="1620" cy="240" r="3"/>
+    <circle cx="1750" cy="40" r="3"/>
+    <circle cx="1590" cy="130" r="2.5"/>
+  </g>
+  <g fill="#F4C542" opacity=".3">
+    <circle cx="1620" cy="142" r="4"/>
+    <circle cx="1524" cy="58" r="3"/>
+    <circle cx="1868" cy="242" r="5"/>
+  </g>
+</svg>

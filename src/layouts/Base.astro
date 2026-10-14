@@ -1,0 +1,49 @@
+---
+import Head from '../components/Head.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+  lang: 'zh' | 'en';
+  title: string;
+  desc: string;
+  kw?: string;
+  path: string;
+  onHero?: boolean;
+  /** 页脚不加顶部间距（如首页 CTA 后直接接页脚以外的特殊布局） */
+  noFooterMargin?: boolean;
+}
+
+const { lang, title, desc, kw, path, onHero = false, noFooterMargin = false } = Astro.props;
+---
+
+<!doctype html>
+<html lang={lang === 'zh' ? 'zh-CN' : 'en'}>
+  <head>
+    <Head {lang} {title} {desc} {kw} {path} />
+  </head>
+  <body>
+    <Header {lang} {path} {onHero} />
+    <main>
+      <slot />
+    </main>
+    <Footer {lang} noMargin={noFooterMargin} />
+
+    <!-- 进场动效：进入视口时上浮显现 -->
+    <script>
+      const io = new IntersectionObserver(
+        (entries) => {
+          for (const e of entries) {
+            if (e.isIntersecting) {
+              e.target.classList.add('in');
+              io.unobserve(e.target);
+            }
+          }
+        },
+        { threshold: 0.12 }
+      );
+      document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+    </script>
+  </body>
+</html>

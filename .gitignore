@@ -399,3 +399,21 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+# ===== 本项目追加（Astro 静态站 + 本地内容管理服务）=====
+
+# 构建产物与工具生成目录（npm run build / astro 重新生成）
+dist/
+.astro/
+.scratch/
+
+# 测试与临时文件
+tmp/
+
+# 后台运行时数据与凭据，禁止入库（含密码散列、客户询价联系方式）
+admin/config.json
+admin/inquiries.json
+admin/sessions*.json
+
+# 版权示例视频（梅里埃 VIRTUO，待替换为自有素材，不入库；部署时手动放置）
+public/assets/video/*.mp4

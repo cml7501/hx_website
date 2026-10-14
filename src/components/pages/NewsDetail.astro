@@ -1,0 +1,48 @@
+---
+import Base from '../../layouts/Base.astro';
+import { ui, t, pref, lbl, sortedNews } from '../../lib/site.js';
+
+interface Props { lang: 'zh' | 'en'; slug: string; }
+const { lang, slug } = Astro.props;
+const p = pref(lang);
+const idx = sortedNews.findIndex((n) => n.slug === slug);
+const item = sortedNews[idx];
+const prev = sortedNews[idx - 1];
+const next = sortedNews[idx + 1];
+const title = `${t(item.title, lang)} - ${lbl('pageTitleNews', lang)} - ${lang === 'zh' ? '恒星科技' : 'Hengxing'}`;
+const baseTdk = ui.tdk.news[lang];
+---
+
+<Base lang={lang} {title} desc={t(item.summary, lang)} kw={baseTdk.kw} path={`/news/${slug}/`}>
+  <section class="page-banner">
+    <div class="container">
+      <h1>{lbl('pageTitleNews', lang)}</h1>
+      <p class="crumb">
+        <a href={p + '/'}>{lbl('breadcrumbHome', lang)}</a><span class="sep">/</span>
+        <a href={p + '/news/'}>{lbl('pageTitleNews', lang)}</a><span class="sep">/</span>{t(item.title, lang)}
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <article class="article">
+        <header class="article-head">
+          <h1>{t(item.title, lang)}</h1>
+          <p class="meta">
+            <span>{lbl('publishDate', lang)}：{item.date}</span>
+            <span>{lbl('source', lang)}：{lang === 'zh' ? '恒星科技' : 'Hengxing'}</span>
+          </p>
+        </header>
+        <div class="article-body">
+          {item.body[lang].map((para) => <p>{para}</p>)}
+        </div>
+        <nav class="article-nav">
+          <a href={prev ? `${p}/news/${prev.slug}/` : '#'}>{lbl('prev', lang)}：{prev ? t(prev.title, lang) : lbl('noPrev', lang)}</a>
+          <a href={p + '/news/'}>{lbl('backToList', lang)}</a>
+          <a href={next ? `${p}/news/${next.slug}/` : '#'} style="text-align:right;">{lbl('next', lang)}：{next ? t(next.title, lang) : lbl('noPrev', lang)}</a>
+        </nav>
+      </article>
+    </div>
+  </section>
+</Base>

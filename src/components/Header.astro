@@ -1,0 +1,97 @@
+---
+import { ui, products, t, pref, lbl } from '../lib/site.js';
+
+interface Props {
+  lang: 'zh' | 'en';
+  /** 当前页不含语言前缀的路径，用于语言切换与当前栏目高亮 */
+  path: string;
+  /** 首页传 true：导航浮于深色轮播之上 */
+  onHero?: boolean;
+}
+const { lang, path, onHero = false } = Astro.props;
+const p = pref(lang);
+const cats = products.categories;
+
+const isActive = (href: string) => {
+  const cur = path === '/' ? '/' : path;
+  return href === '/' ? cur === '/' : cur.startsWith(href);
+};
+const langSwitchHref = (lang === 'zh' ? '/en' : '') + (path === '/' ? '/' : path);
+---
+
+<header class:list={['site-header', { 'on-hero': onHero }]} data-on-hero={onHero ? 'true' : 'false'}>
+  <div class="container header-inner">
+    <a class="brand" href={p + '/'}>
+      <img src="/assets/img/logo.png?v=2" alt={lang === 'zh' ? '合肥恒星科技开发有限公司' : 'Hefei Hengxing Technology'} width="354" height="58" />
+      <span class="brand-name">
+        {lang === 'zh' ? '恒星科技' : 'HENGXING'}
+        <small>{lang === 'zh' ? 'HEFEI HENGXING TECHNOLOGY' : '合肥恒星科技开发有限公司'}</small>
+      </span>
+    </a>
+
+    <nav class="main-nav" aria-label="主导航">
+      {ui.nav.map((item) => (
+        <div class:list={['nav-item', { active: isActive(item.href) }]}>
+          {item.key === 'products' ? (
+            <>
+              <a class="nav-link" href={p + item.href}>{t(item.label, lang)}<span class="caret"> ▾</span></a>
+              <div class="dropdown">
+                {cats.map((c) => (
+                  <a href={`${p}/products/?cat=${c.id}`}>{t(c.name, lang)}</a>
+                ))}
+                <a class="all-link" href={p + '/products/'}>{lbl('allProducts', lang)} →</a>
+              </div>
+            </>
+          ) : (
+            <a class="nav-link" href={p + item.href}>{t(item.label, lang)}</a>
+          )}
+        </div>
+      ))}
+      <a class="lang-switch" href={langSwitchHref} hreflang={lang === 'zh' ? 'en' : 'zh-CN'}>
+        {lbl('langSwitch', lang)}
+      </a>
+    </nav>
+
+    <button class="menu-toggle" aria-label="打开菜单">☰</button>
+  </div>
+</header>
+
+<div class="mobile-drawer" id="mobileDrawer">
+  <div class="drawer-panel">
+    <button class="drawer-close" aria-label="关闭菜单">✕</button>
+    {ui.nav.map((item) => (
+      <div>
+        <a href={p + item.href}>{t(item.label, lang)}</a>
+        {item.key === 'products' && (
+          <div class="drawer-sub">
+            {cats.map((c) => (
+              <a href={`${p}/products/?cat=${c.id}`}>{t(c.name, lang)}</a>
+            ))}
+          </div>
+        )}
+      </div>
+    ))}
+    <a href={langSwitchHref} style="color:var(--c-primary);font-weight:700;">{lbl('langSwitch', lang)}</a>
+  </div>
+</div>
+
+<script>
+  // 滚动时导航变白底；仅首页（data-on-hero="true"）顶部采用透明白字悬浮态
+  const header = document.querySelector('.site-header');
+  const isHome = header?.dataset.onHero === 'true';
+  const onScroll = () => {
+    if (!header) return;
+    const scrolled = window.scrollY > 40;
+    header.classList.toggle('scrolled', scrolled);
+    header.classList.toggle('on-hero', isHome && !scrolled);
+  };
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  const drawer = document.getElementById('mobileDrawer');
+  document.querySelector('.menu-toggle')?.addEventListener('click', () => drawer?.classList.add('open'));
+  drawer?.querySelector('.drawer-close')?.addEventListener('click', () => drawer?.classList.remove('open'));
+  drawer?.addEventListener('click', (e) => {
+    if (e.target === drawer) drawer.classList.remove('open');
+  });
+</script>

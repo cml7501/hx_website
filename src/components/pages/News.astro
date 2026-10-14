@@ -1,0 +1,42 @@
+---
+import Base from '../../layouts/Base.astro';
+import { ui, t, pref, lbl, sortedNews } from '../../lib/site.js';
+
+interface Props { lang: 'zh' | 'en'; }
+const { lang } = Astro.props;
+const p = pref(lang);
+const tdk = ui.tdk.news[lang];
+const items = sortedNews;
+---
+
+<Base lang={lang} title={tdk.title} desc={tdk.desc} kw={tdk.kw} path="/news/">
+  <section class="page-banner page-banner--news">
+    <div class="container">
+      <h1>{lbl('pageTitleNews', lang)}</h1>
+      <p class="crumb">
+        <a href={p + '/'}>{lbl('breadcrumbHome', lang)}</a><span class="sep">/</span>{lbl('pageTitleNews', lang)}
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      {items.map((n, i) => (
+        <a class:list={['news-row', 'reveal', i < 3 ? `reveal-d${i}` : '']} href={`${p}/news/${n.slug}/`}>
+          <div class="pic">
+            <img src={n.thumb} alt={t(n.title, lang)} width="640" height="400" loading="lazy" />
+          </div>
+          <div>
+            <div class="meta">
+              <span class="date-pill">{n.date}</span>
+              <span class="cat-tag">{lbl('companyNews', lang)}</span>
+            </div>
+            <h3>{t(n.title, lang)}</h3>
+            <p class="summary">{t(n.summary, lang)}</p>
+          </div>
+        </a>
+      ))}
+      <p style="margin-top:22px;color:var(--c-text-3);font-size:13.5px;text-align:center;">{lbl('oldNewsNote', lang)}</p>
+    </div>
+  </section>
+</Base>
